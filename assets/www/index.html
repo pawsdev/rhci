@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Syncronize</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.2.0.css" />
+
+<link rel="stylesheet" href="stylesheets/custom.css" />
+<script src="jquery.mobile/jquery-1.7.2.min"></script>
+
+<link rel="stylesheet" href="stylesheets/my.css" />
+<script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
+
+
+<script src="jquery.mobile/index.js"></script>
+
+</head>
+<body onload="device_ready()">
+
+<!-- General -->
+
+<div data-role="page" id="gener">
+  <div data-role="header" data-theme="d" >
+     <h4>Login</h4>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+  	<div id="displayResults" name="displayResults"></div>
+    <form method="post" id="login_form">
+      
+      
+      <div data-role="fieldcontain">
+        <label for="user">User Id :</label>
+        <input type="email" name="name" id="user" value=""  />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="password">Password :</label>
+        <input type="password" name="name" id="password" value=""  />
+      </div>
+      
+      <div data-role="fieldcontain">
+        <a rel="external" href='#'  data-role="button" name="login" id="login">Login</a>
+      </div>
+    </form>
+  </div>
+  <div data-role="footer"  data-position="fixed" data-theme="d">
+    <h4>Page Footer</h4>
+  </div>
+</div><!-- /General -->
+
+<!-- <script type="text/javascript">
+
+
+$("a[data-role=tab]").each(function () {
+    var anchor = $(this);
+    anchor.bind("click", function () {
+    	
+        $.mobile.changePage(anchor.attr("href"), {
+            /*transition: "slidefade",*/
+			transition: "slide",
+            changeHash: false
+        });
+        return false;
+    });
+});
+
+$("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
+    $.mobile.silentScroll(0);
+});
+ //db = window.openDatabase("SQL", "3.0", "PhoneGap Demo", 200000);
+  
+    
+       
+</script> -->
+</body>
+</html>

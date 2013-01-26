@@ -1,0 +1,2273 @@
+<!-- Copyright (c) 2012 Mobile Developer Solutions -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+    <title>RHCI</title>
+
+ 	<!-- <link rel="stylesheet" href="stylesheets/jquery.mobile-1.1.1.css" /> -->
+ 	  <link rel="stylesheet" href="stylesheets/my.css" />
+	<link rel="stylesheet" href="stylesheets/custom.css" />
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.2.0.css" />
+  <link type="text/css" href="stylesheets/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	
+
+     <script src="jquery.mobile/jquery-1.7.2.min"></script>
+    
+	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
+	
+	<script type="text/javascript" src="jquery.mobile/jquery.mobile.simpledialog.min.js"></script>
+	
+	<script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+	
+	
+	<script src="jquery.mobile/index.js"></script>
+	
+
+	</head>
+  
+ <body class="ui-mobile-viewport">
+ 
+<!-- General -->
+
+<div data-role="page" id="general">
+	
+  <div data-role="header" data-position="fixed" data-theme="d">
+  	
+     <a href="process.html" id="home" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id="Crossing">  </div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">	
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab" class="ui-btn-active">General</a></li>
+            <li><a href="#railroad" data-role="tab">Railroad</a></li>
+            <li><a href="#road" data-role="tab">Road</a></li>
+            <li><a href="#signs" data-role="tab">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab">Comments</a></li>
+            <li><a href="#photos" data-role="tab">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+    
+  </div>
+
+  <div data-role="content">
+ <!-- <div id="displayResults" style="display: none" name="displayResults"><img src="http://blog-well.com/wp-content/uploads/2007/06/indicator-big-2.gif" /></div> -->
+   <div class='left_navigation'>
+   	<input class="image_top1" type='image' src='stylesheets/images/top-arrow-d.png' onclick="prev1()" disabled>
+   	<img class="image-left-style" src='stylesheets/images/left-arrow-d.png' >
+			<input class="image-left-style image_bottom1" type="image" class="image-left-style" src='stylesheets/images/bottom-arrow.png' onclick="next1()">
+			
+			<!-- <img class='top_mar' src='stylesheets/images/right-arrow.png' onclick="rail_road_page()"> -->
+	    </div>
+	    <div class='right_navigation'>
+			<input class="image_top1" type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev1()" disabled>
+			<img class='image-left-style' src='stylesheets/images/right-arrow.png' onclick="rail_road_page()">
+			<input class="image-left-style image_bottom1" type="image" class='image-left-style' src='stylesheets/images/bottom-arrow.png' onclick="next1()">
+	    </div>
+   
+   <form class="form_id" id='Id_form' name='form_name' action="#" method="post">
+   	<div  id="simplebool" style="display: none">
+   <div  data-role="fieldcontain">
+	   		<a href="#" id="simple" data-role="button">Open Dialog</a>
+	   		</div>
+	   		</div>
+	   <div class="slide current1" >
+	   	<input value="General-Page 1 of 3" type="hidden" />
+	   	<div data-role="fieldcontain" id="Genaral_data" >
+	   		
+	   	</div>
+       </div>
+		
+      <div class="slide" id='absolute_second' style="display: none;">
+    	<input value="General-Page 2 of 3" type="hidden" />
+      	<div datafield="general_ENS_Sign_Present" class="current" data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>ENS Sign Present :</legend>
+        <input type="radio" name="ENSSignPresent" id="ENSSignPresenty" value="true" checked />
+        <label for="ENSSignPresenty">Yes</label>
+        <input type="radio" name="ENSSignPresent" id="ENSSignPresentn" value="false"  />
+        <label for="ENSSignPresentn">No</label>
+        <a href="#"  data-ajax="false" data-rel="popup" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+       	<img src="stylesheets/images/captcha.png"  data-inline="true" onclick="captureImage(0)" />
+        </fieldset>
+      </div>
+      <div datafield="general_Crossing_Number_Posted" class="current" data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Crossing Number Posted :</legend>
+        <input type="radio" name="CrossingNumberPosted" id="CrossingNumberPostedy" value="true" checked />
+        <label for="CrossingNumberPostedy">Yes</label>
+        <input type="radio" name="CrossingNumberPosted" id="CrossingNumberPostedn" value="false"  />
+        <label for="CrossingNumberPostedn">No</label>
+        
+        <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+        <img src="stylesheets/images/captcha.png"  data-inline="true" onclick="captureImage(1)" />
+        </fieldset>
+      </div>
+      <div datafield="general_US_Route_Number" class="current" data-role="fieldcontain">
+        <label for="USRouteNumber">US Route Number :</label>
+        <input type="text" name="name" id="USRouteNumber" value=""  />
+      </div>
+      <div datafield="general_State_Route_Number" class="current" data-role="fieldcontain">
+        <label for="State_name">State Route Number :</label>
+        <input type="text" name="name" id="State_name" value=""  />
+      </div>
+      <div datafield="general_County_Route_Number" class="current" data-role="fieldcontain">
+        <label for="Country_name">Country Route Number :</label>
+        <input type="text" name="name" id="Country_name" value=""  />
+      </div>
+      <div datafield="general_Local_Street_Name" class="current" data-role="fieldcontain">
+        <label for="Local_name">Local Street Name :</label>
+        <input type="text" name="name" id="Local_name" value=""  />
+      </div>
+      <div datafield="general_RR_Local_Street_Name" class="current" data-role="fieldcontain">
+        <label for="RR_name">RR Local Street Name :</label>
+        <input type="text" name="name" id="RR_name" value=""  />
+      </div>
+      <div datafield="general_Crossing_Status" class="current" data-role="fieldcontain">
+      	<fieldset data-role="controlgroup" data-type="horizontal">
+        <legend for="CrossingStatus" class="select-ui-cstm">Crossing Status :</legend>
+        <select name="CrossingStatus" id="CrossingStatus" >
+          <option id='Open-Track Active' value="1" selected>Open-Track Active</option>
+          <option id="Open-Track Inactive" value="2">Open-Track Inactive</option>
+          <option id="Closed-Track Removed" value="3">Closed-Track Removed</option>
+          <option id="Closed-Roadway Removed" value="4">Closed-Roadway Removed</option>
+        </select>
+        </fieldset>
+      </div>
+      <div datafield="general_Crossing_Type" class="current" data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Crossing Type :</legend>
+        <input type="radio" name="CrossingType" id="CrossingTypey" value="1" checked="checked" />
+        <label for="CrossingTypey">Public</label>
+        <input type="radio" name="CrossingType" id="CrossingTypen" value="2"  />
+        <label for="CrossingTypen">Private</label>
+        </fieldset>
+      </div>
+   
+   </div>
+      <div class="slide current1" style="display: none;">
+      <input value="General-Page 3 of 3" type="hidden" />
+      <div datafield="general_Public_Access" class="current" data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Public Access:</legend>
+        <input type="radio" name="PublicAccess" id="PublicAccessy" value="Y" checked="checked"/>
+        <label for="PublicAccessy">Yes</label>
+        <input type="radio" name="PublicAccess" id="PublicAccessn" value="N"  />
+        <label for="PublicAccessn">No</label>
+        <input type="radio" name="PublicAccess" id="PublicAccessu" value="U"  />
+        <label for="PublicAccessu">Unknown</label>
+        </fieldset>
+      </div>
+      <div datafield="general_Is_Crossing_Blocked" class="current" data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Is Crossing Blocked:</legend>
+        <input type="radio" name="IsCrossingBlocked" id="IsCrossingBlockedy" value="Y" checked="checked" />
+        <label for="IsCrossingBlockedy">Yes</label>
+        <input type="radio" name="IsCrossingBlocked" id="IsCrossingBlockedn" value="N"  />
+        <label for="IsCrossingBlockedn">No</label>
+        </fieldset>
+      </div>
+      <div datafield="general_Blocked_by" class="current" data-role="fieldcontain">
+      	<fieldset data-role="controlgroup" data-type="horizontal">
+        <legend for="BlockedBy" class="select-ui-cstm">Blocked By :</legend>
+        <select name="BlockedBy" id="BlockedBy">
+          <option value="1" selected>Gates</option>
+          <option value="2">Jersey Barrier</option>
+          <option value="3">Chains/Cables</option>
+          <option value="4">Portable Barrier</option>
+          <option value="5">Contructed Barrier</option>
+          <option value="6">Vehicles</option>
+        </select>
+        </fieldset>
+      </div>
+      <div datafield="general_Purpose" class="current" data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Crossing Purpose:</legend>
+        <input type="radio" name="CrossingPurpose" id="CrossingPurpose1" value="1" checked="checked" />
+        <label for="CrossingPurpose1">Highway</label>
+        <input type="radio" name="CrossingPurpose" id="CrossingPurpose2" value="2"  />
+        <label for="CrossingPurpose2">Pathway Ped or Other</label>
+        <input type="radio" name="CrossingPurpose" id="CrossingPurpose3" value="3"  />
+        <label for="CrossingPurpose3">Station Ped</label>
+        </fieldset>
+      </div>
+      <div datafield="general_Position" class="current" data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Crossing Position:</legend>
+        <input type="radio" name="CrossingPosition" id="CrossingPositiona" value="1" checked="checked"/>
+        <label for="CrossingPositiona">At Grade</label>
+        <input type="radio" name="CrossingPosition" id="CrossingPositionrr" value="2"/>
+        <label for="CrossingPositionrr">RR Under</label>
+        <input type="radio" name="CrossingPosition" id="CrossingPositionr" value="3"/>
+        <label for="CrossingPositionr">RR Over</label>
+        </fieldset>
+      </div>
+      
+	  </div>
+	
+   </form>
+  </div>
+  
+ <div data-role="footer" data-position="fixed" data-theme="d">
+ 
+    <h4  id="GeneralFooter">General-Page 1 of 3</h4>
+ </div>
+ 
+</div><!-- /General_1 -->
+  
+<!-- Railroad -->
+
+<div data-role="page" id="railroad">
+  <div data-role="header" data-position="fixed" data-theme="d">
+	   <a href="process.html" id="home1" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id="Crossing1"></div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab">General</a></li>
+            <li><a href="#railroad" data-role="tab" class="ui-btn-active">Railroad</a></li>
+            <li><a href="#road" data-role="tab">Road</a></li>
+            <li><a href="#signs" data-role="tab">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab">Comments</a></li>
+            <li><a href="#photos" data-role="tab">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+	 
+	  <div class='left_navigation'>
+	  	<input type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev2()"disabled>
+	  	<img class="image-left-style" src='stylesheets/images/left-arrow.png'  onclick="general_page()">
+			<input type="image" class='image-left-style' src='stylesheets/images/bottom-arrow-d.png' onclick="next2()" disabled>
+			
+			
+	    </div>
+	    <div class='right_navigation'>
+			<input type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev2()" disabled>
+			<img class="image-left-style" src='stylesheets/images/right-arrow.png' onclick="road_page()">
+			<input type="image" class='image-left-style' src='stylesheets/images/bottom-arrow-d.png' onclick="next2()" disabled>
+	    </div>
+	  <div  id='nothing'>
+		<div class="slide1">
+    <form id='form2_id' action="#" method="get">
+		
+    		<div data-role="fieldcontain">
+                <label for="MainLineTracks"># Main Line Tracks:</label>
+                <input class="selector" type="range" name="MainLineTracks" id="MainLineTracks" value="50" min="0" max="100" />
+                 <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5 help-button-cstm" data-inline="true" data-theme="h">Help</a>
+            </div>
+           
+            
+            <div data-role="fieldcontain">
+                <label for="OtherTracks"># Other Tracks:</label>
+                <input class="selector" type="range" name="OtherTracks" id="OtherTracks" value="50" min="0" max="100" />
+            </div>
+    
+    
+           <div data-role="fieldcontain">
+           <fieldset data-role="controlgroup">
+             <legend>Types of Other Tracks :</legend>
+                <input class='checkbox_check' type="checkbox" name="TypesofOther-1" id="TypesofOther-1" class="custom" />
+                <label for="TypesofOther-1">Siding</label>
+           
+                <input class='checkbox_check' type="checkbox" name="TypesofOther-2" id="TypesofOther-2" class="custom" />
+                <label for="TypesofOther-2">Industry</label>
+            
+                <input class='checkbox_check' type="checkbox" name="TypesofOther-3" id="TypesofOther-3" class="custom" />
+                <label for="TypesofOther-3">Wye</label>
+            
+                <input class='checkbox_check' type="checkbox" name="TypesofOther-4" id="TypesofOther-4" class="custom" />
+                <label for="TypesofOther-4">Storage</label>
+             
+                <input class='checkbox_check' type="checkbox" name="TypesofOther-5" id="TypesofOther-5" class="custom" />
+                <label for="TypesofOther-5">Spur/Lead</label>
+            
+                <input class='checkbox_check' type="checkbox" name="TypesofOther-6" id="TypesofOther-6" class="custom" />
+                <label for="TypesofOther-6">RR Yard</label>
+            
+                <input class='checkbox_check' type="checkbox" name="TypesofOther-7" id="TypesofOther-7" class="custom" />
+                <label for="TypesofOther-7">Transit</label>
+             
+            </fieldset> 
+            </div>
+             <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Are Train Signals Visible :</legend>
+        <input type="radio" name="radio-7" id="Train_radio-choice-21" value="true" checked="checked" />
+        <label for="Train_radio-choice-21">Yes</label>
+        <input type="radio" name="radio-7" id="Train_radio-choice-22" value="false"  />
+        <label for="Train_radio-choice-22">No</label>
+      
+        <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+      
+     
+		
+        </fieldset>
+      </div>
+   
+      
+       </form>
+       </div>
+      </div>
+      </div>
+  <div data-role="footer" data-position="fixed" data-theme="d">
+    <h4 id="RailroadFooter">Railroad-Page 1 of 1</h4>
+  </div>
+  
+</div><!-- /Railroad -->
+		
+<!-- Road -->
+<div data-role="page" id="road">
+  <div data-role="header" data-position="fixed" data-theme="d">
+  	 <a href="process.html" id="home2" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id='Crossing2'> </div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab">General</a></li>
+            <li><a href="#railroad" data-role="tab">Railroad</a></li>
+            <li><a href="#road" data-role="tab" class="ui-btn-active">Road</a></li>
+            <li><a href="#signs" data-role="tab">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab">Comments</a></li>
+            <li><a href="#photos" data-role="tab">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+  	
+	  <div class='left_navigation'>
+	  	<input class="image_top2" type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev3()" disabled>
+	  	<img class="image-left-style" src='stylesheets/images/left-arrow.png'  onclick="rail_road_page()">
+			<input class="image_bottom2 image-left-style" type="image" class="image-left-style" src='stylesheets/images/bottom-arrow.png' onclick="next3()" >
+			
+			
+	    </div>
+	    <div class='right_navigation'>
+			<input class="image_top2" type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev3()" disabled>
+			<img class="image-left-style" src='stylesheets/images/right-arrow.png' onclick="sign_page()">
+			<input class="image_bottom2 image-left-style" type="image" class="image-left-style" src='stylesheets/images/bottom-arrow.png' onclick="next3()">
+	    </div>
+	    
+    <form id='form3_id' action="#" method="get">
+		<div class="slide2 current1">
+			<input value="Road-Page 1 of 2" type="hidden" />
+    		<div data-role="fieldcontain">
+    			<fieldset data-role="controlgroup" data-type="horizontal">
+        		
+                <legend for="Street_Type"  class="select-ui-cstm">Street Type :</legend>
+                <select name="Street_Type" id="Street_Type">
+					<option value="Divided">Divided</option>
+                  <option value="Two-way Street">Two-way Street</option>
+                  <option value="One-way Street">One-way Street</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+            </div>
+    		
+    		<div data-role="fieldcontain">
+                <label for="Lanses_Crossing">Thru Lanes Crossing Tracks:</label>
+                <input type="range" name="Lanses_Crossing" id="Lanses_Crossing" value="50" min="0" max="100" />
+            </div>
+            
+            <div data-role="fieldcontain">
+                <label for="Aux_Lanes">Aux. Lanes Crossing Tracks:</label>
+                <input type="range" name="Aux_Lanes" id="Aux_Lanes" value="50" min="0" max="100" />
+            </div>
+            
+            <div data-role="fieldcontain">
+                <label for="Posted_Speed">Posted Speed Limit :</label>
+                <input type="text" name="Posted_Speed" id="Posted_Speed"  />
+              </div>
+            
+    		<div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <legend>Track Parallel to Street:</legend>
+                    <input type="radio" name="Track_par" id="Track_par_y" value="true" checked="checked" />
+                    <label for="Track_par_y">Yes</label>
+                    <input type="radio" name="Track_par" id="Track_par_n" value="false"  />
+                    <label for="Track_par_n">No</label>
+                </fieldset>
+            </div>
+    
+    		<div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend>Is Roadway Paved:</legend>
+                    <input type="radio" name="Is_roadway" id="Is_roadway_y" value="true" checked="checked" onclick="yes_none()"/>
+                    <label for="Is_roadway_y">Yes</label>
+                    <input type="radio" name="Is_roadway" id="Is_roadway_n" value="false"  onclick="none()"/>
+                    <label for="Is_roadway_n">No</label>
+                </fieldset>
+            </div>
+           	
+            <div data-role="fieldcontain">
+            	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Pavement_Materia"  class="select-ui-cstm">Pavement Material:</legend>
+                <select name="Pavement_Materia" id="Pavement_Materia">
+                  <option value="standard">Asphalt</option>
+                  <option value="none">none</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+            	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Median_Channelization">Median Channelization:</legend>
+                <select name="Median_Channelization" id="Median_Channelization" onchange="call_data()">
+                  <option value="standard">One Approach</option>
+                  <option value="none">none</option>
+                  
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+            	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Channelization_Device"  class="select-ui-cstm">Channelization Device :</legend>
+                <select name="Channelization_Device" id="Channelization_Device">
+                  <option value="standard">One Approach</option>
+                  <option value="none">none</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend>Sidewalk Approach Crossing:</legend>
+                    <input type="radio" name="Sidewalk" id="Sidewalk_y" value="true" checked="checked" />
+                    <label for="Sidewalk_y">Yes</label>
+                    <input type="radio" name="Sidewalk" id="Sidewalk_n" value="false"  />
+                    <label for="Sidewalk_n">No</label>
+                </fieldset>
+            </div>
+            
+           <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend>Sidewalk Cross Track :</legend>
+                    <input type="radio" name="Sidewalk_Cross" id="Sidewalk_Cross_y" value="Y" checked="checked" />
+                    <label for="Sidewalk_Cross_y">Yes</label>
+                    <input type="radio" name="Sidewalk_Cross" id="Sidewalk_Cross_n" value="N"  />
+                    <label for="Sidewalk_Cross_n">No</label>
+                </fieldset>
+          </div>
+          
+          <div data-role="fieldcontain">
+          	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Mainline_Crossing_Surface"  class="select-ui-cstm select-ui-last-cstm">Mainline Crossing Surface :</legend>
+                <select name="Mainline_Crossing_Surface" id="Mainline_Crossing_Surface">
+                  <option value="standard">Asphalt</option>
+                  <option value="rush">Asphalt-2</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+          </div>
+          </div>
+          <div class="slide2 current1" style="display: none;">
+          <input value="Road-Page 2 of 2" type="hidden" />
+          
+          
+          <div data-role="fieldcontain">
+                <label for="Surface_Width">Surface Width:</label>
+                <input type="range" name="Surface_Width" id="Surface_Width" value="50" min="0" max="100" />
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5 help-button-cstm" data-inline="true" data-theme="h">Help</a>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <label for="Surface_Length">Surface Length:</label>
+                <input type="range" name="Surface_Length" id="Surface_Length" value="50" min="0" max="100" />
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5 help-button-cstm" data-inline="true" data-theme="h">Help</a>
+            </div>
+          
+          <div data-role="fieldcontain">
+          	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Approach_and_Leave" class="select-ui-cstm">Approach and Leave Condition:</legend>
+                <select name="Approach_and_Leave" id="Approach_and_Leave">
+                  <option value="standard">Uneven</option>
+                  <option value="rush">Even</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+          </div>
+          
+          <div data-role="fieldcontain">
+          	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Vehicle_Reaction" class="select-ui-cstm">Vehicle Reaction:</legend>
+                <select name="Vehicle_Reaction" id="Vehicle_Reaction">
+                  <option value="standard">Shaking</option>
+                  <option value="rush">UnShaking</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+          </div>
+          
+          <div data-role="fieldcontain">
+          	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Driver_Reaction" class="select-ui-cstm">Driver Reaction:</legend>
+                <select name="Driver_Reaction" id="Driver_Reaction">
+                  <option value="standard">Most Driver Slow Down</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+          </div>
+          
+          <div data-role="fieldcontain">
+          	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Rail_Pad" class="select-ui-cstm">Rail and/or Pad Movement:</legend>
+                <select name="Rail_Pad" id="Rail_Pad">
+                  <option value="standard">Minor Erosion/ Some Movement</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h">Help</a>
+                </fieldset>
+          </div>
+          
+          <div data-role="fieldcontain">
+          	<fieldset data-role="controlgroup" data-type="horizontal">
+                <legend for="Pavement_Markings" class="select-ui-cstm select-ui-last-cstm">Pavement Markings:</legend>
+                <select name="Pavement_Markings" id="Pavement_Markings">
+                  <option value="standard">None</option>
+                </select>
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-up-5" data-inline="true" data-theme="h" data-rel="popup">Help</a>
+                 
+                </fieldset>
+          </div>
+          
+          </div>
+    </form>
+  </div>
+  <div data-role="footer" data-position='fixed' data-theme="d">
+    <h4 id="RoadFooter">Road-Page 1 of 2</h4>
+  </div>
+  <script src="jquery.mobile/road.js"></script>
+</div><!-- /Road -->
+
+<!-- sign -->
+<div data-role="page" id="signs">
+  <div data-role="header" data-position="fixed" data-theme="d">
+  	 <a href="process.html" id="home3" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id='Crossing3'>  </div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab">General</a></li>
+            <li><a href="#railroad" data-role="tab">Railroad</a></li>
+            <li><a href="#road" data-role="tab">Road</a></li>
+            <li><a href="#signs" data-role="tab" class="ui-btn-active">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab">Comments</a></li>
+            <li><a href="#photos" data-role="tab">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+  	
+  <div class='left_navigation'>
+  	<input class="image_top3" type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev4()" disabled>
+  	<img class="image-left-style" src='stylesheets/images/left-arrow.png' onclick="road_page()">
+			<input type="image" class="image-left-style image_bottom3" src='stylesheets/images/bottom-arrow.png' onclick="next4()">
+			
+			
+	    </div>
+	    <div class='right_navigation'>
+			<input type="image" class="image_top3" src='stylesheets/images/top-arrow-d.png' onclick="prev4()" disabled>
+			<img class="image-left-style" src='stylesheets/images/right-arrow.png' onclick="signals_page()">
+			<input type="image" class="image-left-style image_bottom3" src='stylesheets/images/bottom-arrow.png' onclick="next4()">
+	    </div>
+	  <div class="slide3 current1">
+	  	<input value="Signs-Page 1 of 4" type="hidden" />
+    <form action="#" id="signs_form" method="get">
+            
+    		<div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <legend>Number of Most Mounted Cross Bucks:</legend>
+                    <input type="radio" name="Number-of-Most-Mounted-Cross-Bucks" id="Number-of-Most-Mounted-Cross-Bucks-0" value="0" checked="checked" />
+                    <label for="Number-of-Most-Mounted-Cross-Bucks-0">0</label>
+                    <input type="radio" name="Number-of-Most-Mounted-Cross-Bucks" id="Number-of-Most-Mounted-Cross-Bucks-1" value="1"  />
+                    <label for="Number-of-Most-Mounted-Cross-Bucks-1">1</label>
+                    <input type="radio" name="Number-of-Most-Mounted-Cross-Bucks" id="Number-of-Most-Mounted-Cross-Bucks-2" value="2"  />
+                    <label for="Number-of-Most-Mounted-Cross-Bucks-2">2</label>
+                    <input type="radio" name="Number-of-Most-Mounted-Cross-Bucks" id="Number-of-Most-Mounted-Cross-Bucks-3" value="3"  />
+                    <label for="Number-of-Most-Mounted-Cross-Bucks-3">3</label>  
+                    <input type="radio" name="Number-of-Most-Mounted-Cross-Bucks" id="Number-of-Most-Mounted-Cross-Bucks-4" value="4"  />
+                    <label for="Number-of-Most-Mounted-Cross-Bucks-4">4</label>                                     
+                </fieldset>
+            </div>
+    
+    		<div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+                    <legend>Total Number of Cross Bucks Signs:</legend>
+                    <input type="radio" name="Total-Number-of-Cross-Bucks-Signs" id="Total-Number-of-Cross-Bucks-Signs-0" value="0" checked="checked" />
+                    <label for="Total-Number-of-Cross-Bucks-Signs-0">0</label>
+                    <input type="radio" name="Total-Number-of-Cross-Bucks-Signs" id="Total-Number-of-Cross-Bucks-Signs-1" value="1"  />
+                    <label for="Total-Number-of-Cross-Bucks-Signs-1">1</label>
+                    <input type="radio" name="Total-Number-of-Cross-Bucks-Signs" id="Total-Number-of-Cross-Bucks-Signs-2" value="2"  />
+                    <label for="Total-Number-of-Cross-Bucks-Signs-2">2</label>
+                    <input type="radio" name="Total-Number-of-Cross-Bucks-Signs" id="Total-Number-of-Cross-Bucks-Signs-3" value="3"  />
+                    <label for="Total-Number-of-Cross-Bucks-Signs-3">3</label>  
+                    <input type="radio" name="Total-Number-of-Cross-Bucks-Signs" id="Total-Number-of-Cross-Bucks-Signs-4" value="4"  />
+                    <label for="Total-Number-of-Cross-Bucks-Signs-4">4</label>                                     
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <legend>Number of Stop Signs:</legend>
+                    <input type="radio" name="Number-of-Stop-Signs" id="Number-of-Stop-Signs-0" value="0" checked="checked" />
+                    <label for="Number-of-Stop-Signs-0">0</label>
+                    <input type="radio" name="Number-of-Stop-Signs" id="Number-of-Stop-Signs-1" value="1"  />
+                    <label for="Number-of-Stop-Signs-1">1</label>
+                    <input type="radio" name="Number-of-Stop-Signs" id="Number-of-Stop-Signs-2" value="2"  />
+                    <label for="Number-of-Stop-Signs-2">2</label>
+                    <input type="radio" name="Number-of-Stop-Signs" id="Number-of-Stop-Signs-3" value="3"  />
+                    <label for="Number-of-Stop-Signs-3">3</label>  
+                    <input type="radio" name="Number-of-Stop-Signs" id="Number-of-Stop-Signs-4" value="4"  />
+                    <label for="Number-of-Stop-Signs-4">4</label>
+                     <img src="stylesheets/images/R1-1.png" class="ui-li-icon">                                   
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+                    <legend>Number of Yeild Signs:</legend>
+                    <input type="radio" name="Number-of-Yeild-Signs" id="Number-of-Yeild-Signs-0" value="0" checked="checked" />
+                    <label for="Number-of-Yeild-Signs-0">0</label>
+                    <input type="radio" name="Number-of-Yeild-Signs" id="Number-of-Yeild-Signs-1" value="1"  />
+                    <label for="Number-of-Yeild-Signs-1">1</label>
+                    <input type="radio" name="Number-of-Yeild-Signs" id="Number-of-Yeild-Signs-2" value="2"  />
+                    <label for="Number-of-Yeild-Signs-2">2</label>
+                    <input type="radio" name="Number-of-Yeild-Signs" id="Number-of-Yeild-Signs-3" value="3"  />
+                    <label for="Number-of-Yeild-Signs-3">3</label>  
+                    <input type="radio" name="Number-of-Yeild-Signs" id="Number-of-Yeild-Signs-4" value="4"  />
+                    <label for="Number-of-Yeild-Signs-4">4</label>
+					<img src="stylesheets/images/R1-2.png" class="ui-li-icon">                                    
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <legend>Road Closed (R11-2):</legend>
+                    <input type="radio" name="Road-Closed-R11-2" id="Road-Closed-(R11-2)-0" value="0" checked="checked" />
+                    <label for="Road-Closed-(R11-2)-0">0</label>
+                    <input type="radio" name="Road-Closed-R11-2" id="Road-Closed-(R11-2)-1" value="1"  />
+                    <label for="Road-Closed-(R11-2)-1">1</label>
+                    <input type="radio" name="Road-Closed-R11-2" id="Road-Closed-(R11-2)-2" value="2"  />
+                    <label for="Road-Closed-(R11-2)-2">2</label>
+                    <input type="radio" name="Road-Closed-R11-2" id="Road-Closed-(R11-2)-3" value="3"  />
+                    <label for="Road-Closed-(R11-2)-3">3</label>  
+                    <input type="radio" name="Road-Closed-R11-2" id="Road-Closed-(R11-2)-4" value="4"  />
+                    <label for="Road-Closed-(R11-2)-4">4</label>
+                    <img src="stylesheets/images/R11-2.png" class="ui-li-icon">                                     
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+                    <legend>Number of Tracks:</legend>
+                    <input type="radio" name="Number_of_Tracks" id="Number-of-Tracks-0" value="0" checked="checked" />
+                    <label for="Number-of-Tracks-0">0</label>
+                    <input type="radio" name="Number_of_Tracks" id="Number-of-Tracks-1" value="1"  />
+                    <label for="Number-of-Tracks-1">1</label>
+                    <input type="radio" name="Number_of_Tracks" id="Number-of-Tracks-2" value="2"  />
+                    <label for="Number-of-Tracks-2">2</label>
+                    <input type="radio" name="Number_of_Tracks" id="Number-of-Tracks-3" value="3"  />
+                    <label for="Number-of-Tracks-3">3</label>  
+                    <input type="radio" name="Number_of_Tracks" id="Number-of-Tracks-4" value="4"  />
+                    <label for="Number-of-Tracks-4">4</label>                                     
+                </fieldset>
+            </div>
+           	
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <legend>Private Crossing Signs Present:</legend>
+                    <input type="radio" name="Private-Crossing-Signs-Present" id="Private-Crossing-Signs-Present-y" value="true" checked="checked" />
+                    <label for="Private-Crossing-Signs-Present-y">Yes</label>
+                    <input type="radio" name="Private-Crossing-Signs-Present" id="Private-Crossing-Signs-Present-n" value="flase"  />
+                    <label for="Private-Crossing-Signs-Present-n">No</label>
+                    <img src="stylesheets/images/private-crossing.png" class="ui-li-icon">                  
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+                    <legend>Number of Private Crossing Signs:</legend>
+                    <input type="radio" name="Number-of-Private-Crossing-Signs" id="Number-of-Private-Crossing-Signs-0" value="0" checked="checked" />
+                    <label for="Number-of-Private-Crossing-Signs-0">0</label>
+                    <input type="radio" name="Number-of-Private-Crossing-Signs" id="Number-of-Private-Crossing-Signs-1" value="1"  />
+                    <label for="Number-of-Private-Crossing-Signs-1">1</label>
+                    <input type="radio" name="Number-of-Private-Crossing-Signs" id="Number-of-Private-Crossing-Signs-2" value="2"  />
+                    <label for="Number-of-Private-Crossing-Signs-2">2</label>
+                    <input type="radio" name="Number-of-Private-Crossing-Signs" id="Number-of-Private-Crossing-Signs-3" value="3"  />
+                    <label for="Number-of-Private-Crossing-Signs-3">3</label>  
+                    <input type="radio" name="Number-of-Private-Crossing-Signs" id="Number-of-Private-Crossing-Signs-4" value="4"  />
+                    <label for="Number-of-Private-Crossing-Signs-4">4</label> 
+                                                     
+                </fieldset>
+            </div>
+            
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <legend>Trespass Signs Present:</legend>
+                    <input type="radio" name="Trespass-Signs-Present" id="Trespass-Signs-Present-y" value="true" checked="checked" />
+                    <label for="Trespass-Signs-Present-y">Yes</label>
+                    <input type="radio" name="Trespass-Signs-Present" id="Trespass-Signs-Present-n" value="false"  />
+                    <label for="Trespass-Signs-Present-n">No</label>
+                    <img src="stylesheets/images/crossing-no-trespassing.png" class="ui-li-icon">                  
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+                    <legend>Number of Low Ground Clearance Signs:</legend>
+                    <input type="radio" name="Number-of-Low-Ground-Clearance-Signs" id="Number-of-Low-Ground-Clearance-Signs-0" value="0" checked="checked" />
+                    <label for="Number-of-Low-Ground-Clearance-Signs-0">0</label>
+                    <input type="radio" name="Number-of-Low-Ground-Clearance-Signs" id="Number-of-Low-Ground-Clearance-Signs-1" value="1"  />
+                    <label for="Number-of-Low-Ground-Clearance-Signs-1">1</label>
+                    <input type="radio" name="Number-of-Low-Ground-Clearance-Signs" id="Number-of-Low-Ground-Clearance-Signs-2" value="2"  />
+                    <label for="Number-of-Low-Ground-Clearance-Signs-2">2</label>
+                    <input type="radio" name="Number-of-Low-Ground-Clearance-Signs" id="Number-of-Low-Ground-Clearance-Signs-3" value="3"  />
+                    <label for="Number-of-Low-Ground-Clearance-Signs-3">3</label>  
+                    <input type="radio" name="Number-of-Low-Ground-Clearance-Signs" id="Number-of-Low-Ground-Clearance-Signs-4" value="4"  />
+                    <label for="Number-of-Low-Ground-Clearance-Signs-4">4</label>                                     
+                </fieldset>
+            </div>
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <legend>Exempt (R15-3) Sign Present:</legend>
+                    <input type="radio" name="Exempt-R15-3-Sign-Present" id="Exempt-R15-3-Sign-Present-y" value="true" checked="checked" />
+                    <label for="Exempt-R15-3-Sign-Present-y">Yes</label>
+                    <input type="radio" name="Exempt-R15-3-Sign-Present" id="Exempt-R15-3-Sign-Present-n" value="false"  />
+                    <label for="Exempt-R15-3-Sign-Present-n">No</label>
+                     <img src="stylesheets/images/R15-3.png" class="ui-li-icon">                 
+                </fieldset>
+            </div>
+            </div>
+  <div class="slide3" style="display:none">
+  	<input value="Signs-Page 2 of 4" type="hidden" />
+  	
+  <div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>LED Enhanced Crossing Warning:</legend>
+  <input type="radio" name="LEDEnhanced" id="LEDEnhanced0" value="0" checked="checked" />
+  <label for="LEDEnhanced0">0</label>
+  <input type="radio" name="LEDEnhanced" id="LEDEnhanced1" value="1"  />
+  <label for="LEDEnhanced1">1</label>
+  <input type="radio" name="LEDEnhanced" id="LEDEnhanced2" value="2"  />
+  <label for="LEDEnhanced2">2</label>
+  <input type="radio" name="LEDEnhanced" id="LEDEnhanced3" value="3"  />
+  <label for="LEDEnhanced3">3</label>
+  <input type="radio" name="LEDEnhanced" id="LEDEnhanced4" value="4"  />
+  <label for="LEDEnhanced4">4</label>
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Do Not Stop on Tracks (R8-8):</legend>
+  <input type="radio" name="Do-Not-Stop-on-Tracks" id="Do-Not-Stop-on-Tracks-0" value="0" checked="checked" />
+  <label for="Do-Not-Stop-on-Tracks-0">0</label>
+  <input type="radio" name="Do-Not-Stop-on-Tracks" id="Do-Not-Stop-on-Tracks-1" value="1"  />
+  <label for="Do-Not-Stop-on-Tracks-1">1</label>
+  <input type="radio" name="Do-Not-Stop-on-Tracks" id="Do-Not-Stop-on-Tracks-2" value="2"  />
+  <label for="Do-Not-Stop-on-Tracks-2">2</label>
+  <input type="radio" name="Do-Not-Stop-on-Tracks" id="Do-Not-Stop-on-Tracks-3" value="3"  />
+  <label for="Do-Not-Stop-on-Tracks-3">3</label>
+  <input type="radio" name="Do-Not-Stop-on-Tracks" id="Do-Not-Stop-on-Tracks-4" value="4"  />
+  <label for="Do-Not-Stop-on-Tracks-4">4</label>
+  <img src="stylesheets/images/R8-8.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Do Not Stop on Tracks with Beacon:</legend>
+  <input type="radio" name="DoNotStoponTrackswithBeacon" id="DoNotStoponTrackswithBeacon0" value="0" checked="checked" />
+  <label for="DoNotStoponTrackswithBeacon0">0</label>
+  <input type="radio" name="DoNotStoponTrackswithBeacon" id="DoNotStoponTrackswithBeacon1" value="1"  />
+  <label for="DoNotStoponTrackswithBeacon1">1</label>
+  <input type="radio" name="DoNotStoponTrackswithBeacon" id="DoNotStoponTrackswithBeacon2" value="2"  />
+  <label for="DoNotStoponTrackswithBeacon2">2</label>
+  <input type="radio" name="DoNotStoponTrackswithBeacon" id="DoNotStoponTrackswithBeacon3" value="3"  />
+  <label for="DoNotStoponTrackswithBeacon3">3</label>
+  <input type="radio" name="DoNotStoponTrackswithBeacon" id="DoNotStoponTrackswithBeacon4" value="4"  />
+  <label for="DoNotStoponTrackswithBeacon4">4</label>
+  
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Tracks out of Service (R8-9):</legend>
+  <input type="radio" name="TracksoutofService" id="TracksoutofService0" value="0" checked="checked" />
+  <label for="TracksoutofService0">0</label>
+  <input type="radio" name="TracksoutofService" id="TracksoutofService1" value="1"  />
+  <label for="TracksoutofService1">1</label>
+  <input type="radio" name="TracksoutofService" id="TracksoutofService2" value="2"  />
+  <label for="TracksoutofService2">2</label>
+  <input type="radio" name="TracksoutofService" id="TracksoutofService3" value="3"  />
+  <label for="TracksoutofService3">3</label>
+  <input type="radio" name="TracksoutofService" id="TracksoutofService4" value="4"  />
+  <label for="TracksoutofService4">4</label>
+  <img src="stylesheets/images/R8-9.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Stop Here when Flashing (R8-10):</legend>
+  <input type="radio" name="StopHerewhenFlashingR8" id="StopHerewhenFlashing0" value="0" checked="checked" />
+  <label for="StopHerewhenFlashing0">0</label>
+  <input type="radio" name="StopHerewhenFlashingR8" id="StopHerewhenFlashing1" value="1"  />
+  <label for="StopHerewhenFlashing1">1</label>
+  <input type="radio" name="StopHerewhenFlashingR8" id="StopHerewhenFlashing2" value="2"  />
+  <label for="StopHerewhenFlashing2">2</label>
+  <input type="radio" name="StopHerewhenFlashingR8" id="StopHerewhenFlashing3" value="3"  />
+  <label for="StopHerewhenFlashing3">3</label>
+  <input type="radio" name="StopHerewhenFlashingR8" id="StopHerewhenFlashing4" value="4"  />
+  <label for="StopHerewhenFlashing4">4</label>
+  <img src="stylesheets/images/R8-10.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Stop Here when Flashing (R8-10a):</legend>
+  <input type="radio" name="StopHerewhenFlashingR8a" id="StopHerewhenFlashingR8a0" value="0" checked="checked" />
+  <label for="StopHerewhenFlashingR8a0">0</label>
+  <input type="radio" name="StopHerewhenFlashingR8a" id="StopHerewhenFlashingR8a1" value="1"  />
+  <label for="StopHerewhenFlashingR8a1">1</label>
+  <input type="radio" name="StopHerewhenFlashingR8a" id="StopHerewhenFlashingR8a2" value="2"  />
+  <label for="StopHerewhenFlashingR8a2">2</label>
+  <input type="radio" name="StopHerewhenFlashingR8a" id="StopHerewhenFlashingR8a3" value="3"  />
+  <label for="StopHerewhenFlashingR8a3">3</label>
+  <input type="radio" name="StopHerewhenFlashingR8a" id="StopHerewhenFlashingR8a4" value="4"  />
+  <label for="StopHerewhenFlashingR8a4">4</label>
+  <img src="stylesheets/images/R8-10a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Stop Here On Red (R10-6):</legend>
+  <input type="radio" name="StopHereOnRed6" id="StopHereOnRed60" value="0" checked="checked" />
+  <label for="StopHereOnRed60">0</label>
+  <input type="radio" name="StopHereOnRed6" id="StopHereOnRed61" value="1"  />
+  <label for="StopHereOnRed61">1</label>
+  <input type="radio" name="StopHereOnRed6" id="StopHereOnRed62" value="2"  />
+  <label for="StopHereOnRed62">2</label>
+  <input type="radio" name="StopHereOnRed6" id="StopHereOnRed63" value="3"  />
+  <label for="StopHereOnRed63">3</label>
+  <input type="radio" name="StopHereOnRed6" id="StopHereOnRed64" value="4"  />
+  <label for="StopHereOnRed64">4</label>
+  <img src="stylesheets/images/R10-6.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Stop Here On Red (R10-6a):</legend>
+  <input type="radio" name="StopHereOnRed6a" id="StopHereOnRed6a0" value="0" checked="checked" />
+  <label for="StopHereOnRed6a0">0</label>
+  <input type="radio" name="StopHereOnRed6a" id="StopHereOnRed6a1" value="1"  />
+  <label for="StopHereOnRed6a1">1</label>
+  <input type="radio" name="StopHereOnRed6a" id="StopHereOnRed6a2" value="2"  />
+  <label for="StopHereOnRed6a2">2</label>
+  <input type="radio" name="StopHereOnRed6a" id="StopHereOnRed6a3" value="3"  />
+  <label for="StopHereOnRed6a3">3</label>
+  <input type="radio" name="StopHereOnRed6a" id="StopHereOnRed6a4" value="4"  />
+  <label for="StopHereOnRed6a4">4</label>
+  <img src="stylesheets/images/R10-6a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Advanced Warning (W10-1):</legend>
+  <input type="radio" name="AdvancedWarning" id="AdvancedWarning0" value="0" checked="checked" />
+  <label for="AdvancedWarning0">0</label>
+  <input type="radio" name="AdvancedWarning" id="AdvancedWarning1" value="1"  />
+  <label for="AdvancedWarning1">1</label>
+  <input type="radio" name="AdvancedWarning" id="AdvancedWarning2" value="2"  />
+  <label for="AdvancedWarning2">2</label>
+  <input type="radio" name="AdvancedWarning" id="AdvancedWarning3" value="3"  />
+  <label for="AdvancedWarning3">3</label>
+  <input type="radio" name="AdvancedWarning" id="AdvancedWarning4" value="4"  />
+  <label for="AdvancedWarning4">4</label>
+  <img src="stylesheets/images/W10-1.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Amber Beacons On Advanced Warning (W10-1):</legend>
+  <input type="radio" name="AmberBeacons" id="AmberBeacons0" value="0" checked="checked" />
+  <label for="AmberBeacons0">0</label>
+  <input type="radio" name="AmberBeacons" id="AmberBeacons1" value="1"  />
+  <label for="AmberBeacons1">1</label>
+  <input type="radio" name="AmberBeacons" id="AmberBeacons2" value="2"  />
+  <label for="AmberBeacons2">2</label>
+  <input type="radio" name="AmberBeacons" id="AmberBeacons3" value="3"  />
+  <label for="AmberBeacons3">3</label>
+  <input type="radio" name="AmberBeacons" id="AmberBeacons4" value="4"  />
+  <label for="AmberBeacons4">4</label>
+  <img src="stylesheets/images/amber-beacon.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Advanced Warning (W10-2):</legend>
+  <input type="radio" name="AdvancedWarningW2" id="AdvancedWarningW20" value="0" checked="checked" />
+  <label for="AdvancedWarningW20">0</label>
+  <input type="radio" name="AdvancedWarningW2" id="AdvancedWarningW21" value="1"  />
+  <label for="AdvancedWarningW21">1</label>
+  <input type="radio" name="AdvancedWarningW2" id="AdvancedWarningW22" value="2"  />
+  <label for="AdvancedWarningW22">2</label>
+  <input type="radio" name="AdvancedWarningW2" id="AdvancedWarningW23" value="3"  />
+  <label for="AdvancedWarningW23">3</label>
+  <input type="radio" name="AdvancedWarningW2" id="AdvancedWarningW24" value="4"  />
+  <label for="AdvancedWarningW24">4</label>
+  <img src="stylesheets/images/W10-2L.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Advanced Warning (W10-3):</legend>
+  <input type="radio" name="AdvancedWarningW3" id="AdvancedWarningW30" value="0" checked="checked" />
+  <label for="AdvancedWarningW30">0</label>
+  <input type="radio" name="AdvancedWarningW3" id="AdvancedWarningW31" value="1"  />
+  <label for="AdvancedWarningW31">1</label>
+  <input type="radio" name="AdvancedWarningW3" id="AdvancedWarningW32" value="2"  />
+  <label for="AdvancedWarningW32">2</label>
+  <input type="radio" name="AdvancedWarningW3" id="AdvancedWarningW33" value="3"  />
+  <label for="AdvancedWarningW33">3</label>
+  <input type="radio" name="AdvancedWarningW3" id="AdvancedWarningW34" value="4"  />
+  <label for="AdvancedWarningW34">4</label>
+  <img src="stylesheets/images/W10-3L.png" class="ui-li-icon">
+  </fieldset>
+</div>
+</div>
+<div class="slide3" style="display:none">
+	<input value="Signs-Page 3 of 4" type="hidden" />
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Advanced Warning (W10-4):</legend>
+  <input type="radio" name="AdvancedWarningW4" id="AdvancedWarningW40" value="0" checked="checked" />
+  <label for="AdvancedWarningW40">0</label>
+  <input type="radio" name="AdvancedWarningW4" id="AdvancedWarningW41" value="1"  />
+  <label for="AdvancedWarningW41">1</label>
+  <input type="radio" name="AdvancedWarningW4" id="AdvancedWarningW42" value="2"  />
+  <label for="AdvancedWarningW42">2</label>
+  <input type="radio" name="AdvancedWarningW4" id="AdvancedWarningW43" value="3"  />
+  <label for="AdvancedWarningW43">3</label>
+  <input type="radio" name="AdvancedWarningW4" id="AdvancedWarningW44" value="4"  />
+  <label for="AdvancedWarningW44">4</label>
+  <img src="stylesheets/images/W10-4L.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" class="custom-for-bar" >
+  <legend>Advanced Warning (W10-11):</legend>
+  <input type="radio" name="AdvancedWarningW11" id="AdvancedWarningW110" value="0" checked="checked" />
+  <label for="AdvancedWarningW110">0</label>
+  <input type="radio" name="AdvancedWarningW11" id="AdvancedWarningW111" value="1"  />
+  <label for="AdvancedWarningW111">1</label>
+  <input type="radio" name="AdvancedWarningW11" id="AdvancedWarningW112" value="2"  />
+  <label for="AdvancedWarningW112">2</label>
+  <input type="radio" name="AdvancedWarningW11" id="AdvancedWarningW113" value="3"  />
+  <label for="AdvancedWarningW113">3</label>
+  <input type="radio" name="AdvancedWarningW11" id="AdvancedWarningW114" value="4"  />
+  <label for="AdvancedWarningW114">4</label>
+  <img src="stylesheets/images/W10-11.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Advanced Warning (W10-12):</legend>
+  <input type="radio" name="AdvancedWarningW12" id="AdvancedWarningW120" value="0" checked="checked" />
+  <label for="AdvancedWarningW120">0</label>
+  <input type="radio" name="AdvancedWarningW12" id="AdvancedWarningW121" value="1"  />
+  <label for="AdvancedWarningW121">1</label>
+  <input type="radio" name="AdvancedWarningW12" id="AdvancedWarningW122" value="2"  />
+  <label for="AdvancedWarningW122">2</label>
+  <input type="radio" name="AdvancedWarningW12" id="AdvancedWarningW123" value="3"  />
+  <label for="AdvancedWarningW123">3</label>
+  <input type="radio" name="AdvancedWarningW12" id="AdvancedWarningW124" value="4"  />
+  <label for="AdvancedWarningW124">4</label>
+  <img src="stylesheets/images/W10-12.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" class="custom-for-bar" >
+  <legend>No Right Turn Across Tracks (R3-1a):</legend>
+  <input type="radio" name="NoRightTurn1" id="NoRightTurn10" value="0" checked="checked" />
+  <label for="NoRightTurn10">0</label>
+  <input type="radio" name="NoRightTurn1" id="NoRightTurn11" value="1"  />
+  <label for="NoRightTurn11">1</label>
+  <input type="radio" name="NoRightTurn1" id="NoRightTurn12" value="2"  />
+  <label for="NoRightTurn12">2</label>
+  <input type="radio" name="NoRightTurn1" id="NoRightTurn13" value="3"  />
+  <label for="NoRightTurn13">3</label>
+  <input type="radio" name="NoRightTurn1" id="NoRightTurn14" value="4"  />
+  <label for="NoRightTurn14">4</label>
+  <img src="stylesheets/images/R3-1a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>No Right Turn Across Tracks (R3-2a):</legend>
+  <input type="radio" name="NoRightTurn2" id="NoRightTurn20" value="0" checked="checked" />
+  <label for="NoRightTurn20">0</label>
+  <input type="radio" name="NoRightTurn2" id="NoRightTurn21" value="1"  />
+  <label for="NoRightTurn21">1</label>
+  <input type="radio" name="NoRightTurn2" id="NoRightTurn22" value="2"  />
+  <label for="NoRightTurn22">2</label>
+  <input type="radio" name="NoRightTurn2" id="NoRightTurn23" value="3"  />
+  <label for="NoRightTurn23">3</label>
+  <input type="radio" name="NoRightTurn2" id="NoRightTurn24" value="4"  />
+  <label for="NoRightTurn24">4</label>
+  <img src="stylesheets/images/R3-2a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" class="custom-for-bar" >
+  <legend>No Motorized Vehicles on Tracks (R15-6):</legend>
+  <input type="radio" name="NoMotarizedVehicles" id="NoMotarizedVehicles0" value="0" checked="checked" />
+  <label for="NoMotarizedVehicles0">0</label>
+  <input type="radio" name="NoMotarizedVehicles" id="NoMotarizedVehicles1" value="1"  />
+  <label for="NoMotarizedVehicles1">1</label>
+  <input type="radio" name="NoMotarizedVehicles" id="NoMotarizedVehicles2" value="2"  />
+  <label for="NoMotarizedVehicles2">2</label>
+  <input type="radio" name="NoMotarizedVehicles" id="NoMotarizedVehicles3" value="3"  />
+  <label for="NoMotarizedVehicles3">3</label>
+  <input type="radio" name="NoMotarizedVehicles" id="NoMotarizedVehicles4" value="4"  />
+  <label for="NoMotarizedVehicles4">4</label>
+  <img src="stylesheets/images/R15-6.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Do not Drive On Tracks (R15-6a):</legend>
+  <input type="radio" name="DonotDrive6" id="DonotDrive60" value="0" checked="checked" />
+  <label for="DonotDrive60">0</label>
+  <input type="radio" name="DonotDrive6" id="DonotDrive61" value="1"  />
+  <label for="DonotDrive61">1</label>
+  <input type="radio" name="DonotDrive6" id="DonotDrive62" value="2"  />
+  <label for="DonotDrive62">2</label>
+  <input type="radio" name="DonotDrive6" id="DonotDrive63" value="3"  />
+  <label for="DonotDrive63">3</label>
+  <input type="radio" name="DonotDrive6" id="DonotDrive64" value="4"  />
+  <label for="DonotDrive64">4</label>
+  <img src="stylesheets/images/R15-6a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" class="custom-for-bar" >
+  <legend>Ligh Rail Divided Highway (R15-7):</legend>
+  <input type="radio" name="LighRailDivided7" id="LighRailDivided70" value="0" checked="checked" />
+  <label for="LighRailDivided70">0</label>
+  <input type="radio" name="LighRailDivided7" id="LighRailDivided71" value="1"  />
+  <label for="LighRailDivided71">1</label>
+  <input type="radio" name="LighRailDivided7" id="LighRailDivided72" value="2"  />
+  <label for="LighRailDivided72">2</label>
+  <input type="radio" name="LighRailDivided7" id="LighRailDivided73" value="3"  />
+  <label for="LighRailDivided73">3</label>
+  <input type="radio" name="LighRailDivided7" id="LighRailDivided74" value="4"  />
+  <label for="LighRailDivided74">4</label>
+  <img src="stylesheets/images/R15-7.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Light Rail Divided Highway (R15-7a):</legend>
+  <input type="radio" name="LighRailDivided7a" id="LighRailDivided7a0" value="0" checked="checked" />
+  <label for="LighRailDivided7a0">0</label>
+  <input type="radio" name="LighRailDivided7a" id="LighRailDivided7a1" value="1"  />
+  <label for="LighRailDivided7a1">1</label>
+  <input type="radio" name="LighRailDivided7a" id="LighRailDivided7a2" value="2"  />
+  <label for="LighRailDivided7a2">2</label>
+  <input type="radio" name="LighRailDivided7a" id="LighRailDivided7a3" value="3"  />
+  <label for="LighRailDivided7a3">3</label>
+  <input type="radio" name="LighRailDivided7a" id="LighRailDivided7a4" value="4"  />
+  <label for="LighRailDivided7a4">4</label>
+  <img src="stylesheets/images/R15-7a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" class="custom-for-bar" >
+  <legend>Look (R15-8):</legend>
+  <input type="radio" name="Look8" id="Look80" value="0" checked="checked" />
+  <label for="Look80">0</label>
+  <input type="radio" name="Look8" id="Look81" value="1"  />
+  <label for="Look81">1</label>
+  <input type="radio" name="Look8" id="Look82" value="2"  />
+  <label for="Look82">2</label>
+  <input type="radio" name="Look8" id="Look83" value="3"  />
+  <label for="Look83">3</label>
+  <input type="radio" name="Look8" id="Look84" value="4"  />
+  <label for="Look84">4</label>
+  <img src="stylesheets/images/R15-8.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Look Out for Cars:</legend>
+  <input type="radio" name="LookOutforCars" id="LookOutforCars0" value="0" checked="checked" />
+  <label for="LookOutforCars0">0</label>
+  <input type="radio" name="LookOutforCars" id="LookOutforCars1" value="1"  />
+  <label for="LookOutforCars1">1</label>
+  <input type="radio" name="LookOutforCars" id="LookOutforCars2" value="2"  />
+  <label for="LookOutforCars2">2</label>
+  <input type="radio" name="LookOutforCars" id="LookOutforCars3" value="3"  />
+  <label for="LookOutforCars3">3</label>
+  <input type="radio" name="LookOutforCars" id="LookOutforCars4" value="4"  />
+  <label for="LookOutforCars4">4</label>
+  <img src="stylesheets/images/look-out-for-cars.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" class="custom-for-bar" >
+  <legend>Bump (W8-1):</legend>
+  <input type="radio" name="Bump" id="Bump0" value="0" checked="checked" />
+  <label for="Bump0">0</label>
+  <input type="radio" name="Bump" id="Bump1" value="1"  />
+  <label for="Bump1">1</label>
+  <input type="radio" name="Bump" id="Bump2" value="2"  />
+  <label for="Bump2">2</label>
+  <input type="radio" name="Bump" id="Bump3" value="3"  />
+  <label for="Bump3">3</label>
+  <input type="radio" name="Bump" id="Bump4" value="4"  />
+  <label for="Bump4">4</label>
+  <img src="stylesheets/images/W8-1.png" class="ui-li-icon">
+  </fieldset>
+</div>
+</div>
+
+<div class="slide3 current1" style="display:none">
+	<input value="Signs-Page 4 of 4" type="hidden" />
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Trains May Exceed 80MPH (W10-8):</legend>
+  <input type="radio" name="TrainsMayExceed" id="TrainsMayExceed0" value="0" checked="checked" />
+  <label for="TrainsMayExceed0">0</label>
+  <input type="radio" name="TrainsMayExceed" id="TrainsMayExceed1" value="1"  />
+  <label for="TrainsMayExceed1">1</label>
+  <input type="radio" name="TrainsMayExceed" id="TrainsMayExceed2" value="2"  />
+  <label for="TrainsMayExceed2">2</label>
+  <input type="radio" name="TrainsMayExceed" id="TrainsMayExceed3" value="3"  />
+  <label for="TrainsMayExceed3">3</label>
+  <input type="radio" name="TrainsMayExceed" id="TrainsMayExceed4" value="4"  />
+  <label for="TrainsMayExceed4">4</label>
+  <img src="stylesheets/images/W10-8.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" class="custom-for-bar" >
+  <legend>No Train Horn (W10-9):</legend>
+  <input type="radio" name="NoTrainHorn" id="NoTrainHorn0" value="0" checked="checked" />
+  <label for="NoTrainHorn0">0</label>
+  <input type="radio" name="NoTrainHorn" id="NoTrainHorn1" value="1"  />
+  <label for="NoTrainHorn1">1</label>
+  <input type="radio" name="NoTrainHorn" id="NoTrainHorn2" value="2"  />
+  <label for="NoTrainHorn2">2</label>
+  <input type="radio" name="NoTrainHorn" id="NoTrainHorn3" value="3"  />
+  <label for="NoTrainHorn3">3</label>
+  <input type="radio" name="NoTrainHorn" id="NoTrainHorn4" value="4"  />
+  <label for="NoTrainHorn4">4</label>
+  <img src="stylesheets/images/W10-9.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>No Train Horn Plaque(W10-9a):</legend>
+  <input type="radio" name="NoTrainHornPlaque" id="NoTrainHornPlaque0" value="0" checked="checked" />
+  <label for="NoTrainHornPlaque0">0</label>
+  <input type="radio" name="NoTrainHornPlaque" id="NoTrainHornPlaque1" value="1"  />
+  <label for="NoTrainHornPlaque1">1</label>
+  <input type="radio" name="NoTrainHornPlaque" id="NoTrainHornPlaque2" value="2"  />
+  <label for="NoTrainHornPlaque2">2</label>
+  <input type="radio" name="NoTrainHornPlaque" id="NoTrainHornPlaque3" value="3"  />
+  <label for="NoTrainHornPlaque3">3</label>
+  <input type="radio" name="NoTrainHornPlaque" id="NoTrainHornPlaque4" value="4"  />
+  <label for="NoTrainHornPlaque4">4</label>
+  <img src="stylesheets/images/W10-9p.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+<label><strong>Storage Space :</strong></label>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Between Tracks and Highway (W10-11a):</legend>
+  <input type="radio" name="BetweenTracksandHighwaysa" id="BetweenTracksandHighwaysa0" value="0" checked="checked" />
+  <label for="BetweenTracksandHighwaysa0">0</label>
+  <input type="radio" name="BetweenTracksandHighwaysa" id="BetweenTracksandHighwaysa1" value="1"  />
+  <label for="BetweenTracksandHighwaysa1">1</label>
+  <input type="radio" name="BetweenTracksandHighwaysa" id="BetweenTracksandHighwaysa2" value="2"  />
+  <label for="BetweenTracksandHighwaysa2">2</label>
+  <input type="radio" name="BetweenTracksandHighwaysa" id="BetweenTracksandHighwaysa3" value="3"  />
+  <label for="BetweenTracksandHighwaysa3">3</label>
+  <input type="radio" name="BetweenTracksandHighwaysa" id="BetweenTracksandHighwaysa4" value="4"  />
+  <label for="BetweenTracksandHighwaysa4">4</label>
+  <img src="stylesheets/images/W10-11a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Between Highway and Tracks Behind You (W10-11b):</legend>
+  <input type="radio" name="BetweenTracksandHighwaysb" id="BetweenTracksandHighwaysb0" value="0" checked="checked" />
+  <label for="BetweenTracksandHighwaysb0">0</label>
+  <input type="radio" name="BetweenTracksandHighwaysb" id="BetweenTracksandHighwaysb1" value="1"  />
+  <label for="BetweenTracksandHighwaysb1">1</label>
+  <input type="radio" name="BetweenTracksandHighwaysb" id="BetweenTracksandHighwaysb2" value="2"  />
+  <label for="BetweenTracksandHighwaysb2">2</label>
+  <input type="radio" name="BetweenTracksandHighwaysb" id="BetweenTracksandHighwaysb3" value="3"  />
+  <label for="BetweenTracksandHighwaysb3">3</label>
+  <input type="radio" name="BetweenTracksandHighwaysb" id="BetweenTracksandHighwaysb4" value="4"  />
+  <label for="BetweenTracksandHighwaysb4">4</label>
+  <img src="stylesheets/images/W10-11b.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Not Gates or Lights Plaque (W10-13p):</legend>
+  <input type="radio" name="NotGatesorLightsPlaque" id="NotGatesorLightsPlaque0" value="0" checked="checked" />
+  <label for="NotGatesorLightsPlaque0">0</label>
+  <input type="radio" name="NotGatesorLightsPlaque" id="NotGatesorLightsPlaque1" value="1"  />
+  <label for="NotGatesorLightsPlaque1">1</label>
+  <input type="radio" name="NotGatesorLightsPlaque" id="NotGatesorLightsPlaque2" value="2"  />
+  <label for="NotGatesorLightsPlaque2">2</label>
+  <input type="radio" name="NotGatesorLightsPlaque" id="NotGatesorLightsPlaque3" value="3"  />
+  <label for="NotGatesorLightsPlaque3">3</label>
+  <input type="radio" name="NotGatesorLightsPlaque" id="NotGatesorLightsPlaque4" value="4"  />
+  <label for="NotGatesorLightsPlaque4">4</label>
+  <img src="stylesheets/images/W10-13.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Next Crossing Plaque (W10-14p):</legend>
+  <input type="radio" name="NextCrossingPlaque" id="NextCrossingPlaque0" value="0" checked="checked" />
+  <label for="NextCrossingPlaque0">0</label>
+  <input type="radio" name="NextCrossingPlaque" id="NextCrossingPlaque1" value="1"  />
+  <label for="NextCrossingPlaque1">1</label>
+  <input type="radio" name="NextCrossingPlaque" id="NextCrossingPlaque2" value="2"  />
+  <label for="NextCrossingPlaque2">2</label>
+  <input type="radio" name="NextCrossingPlaque" id="NextCrossingPlaque3" value="3"  />
+  <label for="NextCrossingPlaque3">3</label>
+  <input type="radio" name="NextCrossingPlaque" id="NextCrossingPlaque4" value="4"  />
+  <label for="NextCrossingPlaque4">4</label>
+  <img src="stylesheets/images/W10-14.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Use Next Crossing Plaque (W10-14ap):</legend>
+  <input type="radio" name="UseNextCrossingPlaque" id="UseNextCrossingPlaque0" value="0" checked="checked" />
+  <label for="UseNextCrossingPlaque0">0</label>
+  <input type="radio" name="UseNextCrossingPlaque" id="UseNextCrossingPlaque1" value="1"  />
+  <label for="UseNextCrossingPlaque1">1</label>
+  <input type="radio" name="UseNextCrossingPlaque" id="UseNextCrossingPlaque2" value="2"  />
+  <label for="UseNextCrossingPlaque2">2</label>
+  <input type="radio" name="UseNextCrossingPlaque" id="UseNextCrossingPlaque3" value="3"  />
+  <label for="UseNextCrossingPlaque3">3</label>
+  <input type="radio" name="UseNextCrossingPlaque" id="UseNextCrossingPlaque4" value="4"  />
+  <label for="UseNextCrossingPlaque4">4</label>
+  <img src="stylesheets/images/W10-14a.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal" >
+  <legend>Rought Crossing Plaque (W10-15p):</legend>
+  <input type="radio" name="RoughtCrossingPlaque" id="RoughtCrossingPlaque0" value="0" checked="checked" />
+  <label for="RoughtCrossingPlaque0">0</label>
+  <input type="radio" name="RoughtCrossingPlaque" id="RoughtCrossingPlaque1" value="1"  />
+  <label for="RoughtCrossingPlaque1">1</label>
+  <input type="radio" name="RoughtCrossingPlaque" id="RoughtCrossingPlaque2" value="2"  />
+  <label for="RoughtCrossingPlaque2">2</label>
+  <input type="radio" name="RoughtCrossingPlaque" id="RoughtCrossingPlaque3" value="3"  />
+  <label for="RoughtCrossingPlaque3">3</label>
+  <input type="radio" name="RoughtCrossingPlaque" id="RoughtCrossingPlaque4" value="4"  />
+  <label for="RoughtCrossingPlaque4">4</label>
+  <img src="stylesheets/images/W10-15.png" class="ui-li-icon">
+  </fieldset>
+</div>
+
+
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal"  class="custom-for-bar">
+  <legend>Slow Signs:</legend>
+  <input type="radio" name="SlowSigns" id="SlowSigns0" value="0" checked="checked" />
+  <label for="SlowSigns0">0</label>
+  <input type="radio" name="SlowSigns" id="SlowSigns1" value="1"  />
+  <label for="SlowSigns1">1</label>
+  <input type="radio" name="SlowSigns" id="SlowSigns2" value="2"  />
+  <label for="SlowSigns2">2</label>
+  <input type="radio" name="SlowSigns" id="SlowSigns3" value="3"  />
+  <label for="SlowSigns3">3</label>
+  <input type="radio" name="SlowSigns" id="SlowSigns4" value="4"  />
+  <label for="SlowSigns4">4</label>
+  <img src="stylesheets/images/slow-yellow.png" class="ui-li-icon">
+  </fieldset>
+</div>
+</div>
+    
+    </form>
+  </div>
+  
+  <div data-role="footer" data-theme="d">
+    <h4 id="SignsFooter">Signs-Page 1 of 4</h4>
+    
+  </div>
+  <script src="jquery.mobile/signs.js"></script>
+</div><!-- /sign -->
+
+
+<!--Signs and Gates-->
+<div data-role="page" id="signals-and-gates">
+  <div data-role="header" data-position="fixed" data-theme="d">
+  	<a href="process.html" id="home4" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id='Crossing4'>  </div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab">General</a></li>
+            <li><a href="#railroad" data-role="tab">Railroad</a></li>
+            <li><a href="#road" data-role="tab">Road</a></li>
+            <li><a href="#signs" data-role="tab">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab" class="ui-btn-active">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab">Comments</a></li>
+            <li><a href="#photos" data-role="tab">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+  	
+  	<div class='left_navigation'>
+  		<input type="image" class="image_top4" src='stylesheets/images/top-arrow-d.png' onclick="prev5()" disabled>
+  		<img class="image-left-style" src='stylesheets/images/left-arrow.png' onclick="sign_page()">
+			<input type="image" class="image-left-style image_bottom4" src='stylesheets/images/bottom-arrow.png' onclick="next5()">
+			
+			
+	    </div>
+	    <div class='right_navigation'>
+			<input type="image" class="image_top4" src='stylesheets/images/top-arrow-d.png' onclick="prev5()" disabled>
+			<img class="image-left-style" src='stylesheets/images/right-arrow.png' onclick="vicinity_page()">
+			<input type="image" class='image-left-style image_bottom4' src='stylesheets/images/bottom-arrow.png' onclick="next5()">
+	    </div>
+    <form action="#" method="get">
+    	<div class="slide4 current1">
+    		<input value="Signals-Gates-Page 1 of 2" type="hidden" />
+      <div data-role="fieldcontain">
+        <label for="NumberofBells">Number of Bells:</label>
+        <input type="range" name="NumberofBells" id="NumberofBells" value="50" min="0" max="100"/>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="PostswithFlashingLights">Posts with Flashing Lights (III.3.D):</label>
+        <input type="range" name="PostswithFlashingLights" id="PostswithFlashingLights" value="50" min="0" max="100" />
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Types of Other Lights(All that Apply) :</legend>
+        <input type="checkbox" name="TypesofOtherLights-1" id="TypesofOtherLights-1" value="true" class="custom" />
+        <label for="TypesofOtherLights-1">Incandescent</label>
+        <input type="checkbox" name="TypesofOtherLights-2" id="TypesofOtherLights-2" value="true" class="custom" />
+        <label for="TypesofOtherLights-2">LED</label>
+        <input type="checkbox" name="TypesofOtherLights-3" id="TypesofOtherLights-3" value="true" class="custom" />
+        <label for="TypesofOtherLights-3">Backlights Included</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Contilevers Over Traffic:</legend>
+        <input type="radio" name="ContieversOverTraffic" id="ContieversOverTraffic0" value="0" checked="checked" />
+        <label for="ContieversOverTraffic0">0</label>
+        <input type="radio" name="ContieversOverTraffic" id="ContieversOverTraffic1" value="1"  />
+        <label for="ContieversOverTraffic1">1</label>
+        <input type="radio" name="ContieversOverTraffic" id="ContieversOverTraffic2" value="2"  />
+        <label for="ContieversOverTraffic2">2</label>
+        <input type="radio" name="ContieversOverTraffic" id="ContieversOverTraffic3" value="3"  />
+        <label for="ContieversOverTraffic3">3</label>
+        <input type="radio" name="ContieversOverTraffic" id="ContieversOverTraffic4" value="4"  />
+        <label for="ContieversOverTraffic4">4</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Contilevers NOT Over Traffic:</legend>
+        <input type="radio" name="ContieversNOTOverTraffic" id="ContieversNOTOverTraffic0" value="0" checked="checked" />
+        <label for="ContieversNOTOverTraffic0">0</label>
+        <input type="radio" name="ContieversNOTOverTraffic" id="ContieversNOTOverTraffic1" value="1"  />
+        <label for="ContieversNOTOverTraffic1">1</label>
+        <input type="radio" name="ContieversNOTOverTraffic" id="ContieversNOTOverTraffic2" value="2"  />
+        <label for="ContieversNOTOverTraffic2">2</label>
+        <input type="radio" name="ContieversNOTOverTraffic" id="ContieversNOTOverTraffic3" value="3"  />
+        <label for="ContieversNOTOverTraffic3">3</label>
+        <input type="radio" name="ContieversNOTOverTraffic" id="ContieversNOTOverTraffic4" value="4"  />
+        <label for="ContieversNOTOverTraffic4">4</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Type of Contilever Flashing Lights:</legend>
+        <input type="radio" name="TypeofContileverFlashingLights" id="TypeofContileverFlashingLights1" value="I" checked="checked" />
+        <label for="TypeofContileverFlashingLights1">Incandescent</label>
+        <input type="radio" name="TypeofContileverFlashingLights" id="TypeofContileverFlashingLights2" value="L"  />
+        <label for="TypeofContileverFlashingLights2">Led</label>
+        <input type="radio" name="TypeofContileverFlashingLights" id="TypeofContileverFlashingLights3" value="B"  />
+        <label for="TypeofContileverFlashingLights3">Both</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="NumberofFlashingPairs">Number of Flashing Pairs:</label>
+        <input type="range" name="NumberofFlashingPairs" id="NumberofFlashingPairs" value="50" min="0" max="100" />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="Number8Incandescent">Number 8" Incandescent Signal Pairs:</label>
+        <input type="range" name="Number8Incandescent" id="Number8Incandescent" value="50" min="0" max="100" />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="Number12Incandescent">Number 12" Incandescent Signal Pairs:</label>
+        <input type="range" name="Number12Incandescent" id="Number12Incandescent" value="50" min="0" max="100" />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="Number12LED">Number 12" LED Signal Pairs:</label>
+        <input type="range" name="Number12LED" id="Number12LED" value="50" min="0" max="100" />
+      </div>
+      </div>
+      
+      
+      <div class="slide4 current1" style="display:none">
+      	<input value="Signals-Gates-Page 2 of 2" type="hidden" />
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Traffic Signals Controlling the Crossing:</legend>
+        <input type="radio" name="TrafficSignalsControllingtheCrossing" id="TrafficSignalsControllingtheCrossingy" value="true" checked="checked" />
+        <label for="TrafficSignalsControllingtheCrossingy">Yes</label>
+        <input type="radio" name="TrafficSignalsControllingtheCrossing" id="TrafficSignalsControllingtheCrossingn" value="false"  />
+        <label for="TrafficSignalsControllingtheCrossingn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Traffic Pre-Signals Present:</legend>
+        <input type="radio" name="TrafficPreSignalsPresent" id="TrafficPreSignalsPresenty" value="true" checked="checked" />
+        <label for="TrafficPreSignalsPresenty">Yes</label>
+        <input type="radio" name="TrafficPreSignalsPresent" id="TrafficPreSignalsPresentn" value="false"  />
+        <label for="TrafficPreSignalsPresentn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Number of Traffic Pre-Signals:</legend>
+        <input type="radio" name="NumberofTrafficPreSignals" id="NumberofTrafficPreSignals0" value="0" checked="checked" />
+        <label for="NumberofTrafficPreSignals0">0</label>
+        <input type="radio" name="NumberofTrafficPreSignals" id="NumberofTrafficPreSignals1" value="1"  />
+        <label for="NumberofTrafficPreSignals1">1</label>
+        <input type="radio" name="NumberofTrafficPreSignals" id="NumberofTrafficPreSignals2" value="2"  />
+        <label for="NumberofTrafficPreSignals2">2</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="TrafficPreSignalStorage">Traffic Pre-Signal Storage Distance :</label>
+        <input type="text" name="TrafficPreSignalStorage" id="TrafficPreSignalStorage" value=""  />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="TrafficPreSignalStop">Traffic Pre-Signal Stop Line Distance :</label>
+        <input type="text" name="TrafficPreSignalStop" id="TrafficPreSignalStop" value=""  />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="TotalNumberofRoadwayGates">Total Number of Roadway Gates:</label>
+        <input type="range" name="TotalNumberofRoadwayGates" id="TotalNumberofRoadwayGates" value="50" min="0" max="100"/>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="TotalNumberofPedestrainGates">Total Number of Pedestrain Gates:</label>
+        <input type="range" name="TotalNumberofPedestrainGates" id="TotalNumberofPedestrainGates" value="50" min="0" max="100"  />
+      </div>
+      <div data-role="fieldcontain" id ="Configuration" class="select-ui-last-cstm">
+        <fieldset data-role="controlgroup">
+        <legend>Gate Configuration (All that apply):</legend>
+        <input type="radio" name="Quad" id="Quad2" value="2" />
+        <label for="Quad2">2 Quad</label>
+        <input type="radio" name="Quad" id="Quad3" value="3"  />
+        <label for="Quad3">3 Quad</label>
+        <input type="radio" name="Quad" id="Quad4" value="4"  />
+        <label for="Quad4">4 Quad</label>
+        <input type="radio" name="Full" id="Fulle" value="1"  />
+        <label for="Fulle">Full Entrance Closure</label>
+        <input type="radio" name="Full" id="Fullb" value="2"  />
+        <label for="Fullb">Full (Barrier) Resistance</label>
+        <input type="radio" name="Full" id="Fulln" value="0"  />
+        <label for="Fulln">Not Applicable</label>
+        <input type="checkbox" name="MedianGates" id="MedianGates" value="true"  />
+        <label for="MedianGates" class="select-ui-last-cstm">Median Gates</label>
+        </fieldset>
+      </div>
+      </div>
+    </form>
+  </div>
+  
+  <div data-role="footer" data-theme="d">
+    <h4 id="SignalsFooter">Signals-Gates-Page 1 of 2</h4>
+  </div>
+  <script src="jquery.mobile/signals.js"></script>
+</div>
+<!--/Signs and Gates-->
+
+
+<div data-role="page" id="vicinity">
+  <div data-role="header" data-position="fixed" data-theme="d">
+  	<a href="process.html" id="home6" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id="Crossing5"></div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab">General</a></li>
+            <li><a href="#railroad" data-role="tab">Railroad</a></li>
+            <li><a href="#road" data-role="tab">Road</a></li>
+            <li><a href="#signs" data-role="tab">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab" class="ui-btn-active">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab">Comments</a></li>
+            <li><a href="#photos" data-role="tab">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+  	
+  	<div class='left_navigation'>
+  		<input type="image" class="image_top5" src='stylesheets/images/top-arrow-d.png' onclick="prev6()" disabled>
+  		<img class="image-left-style" src='stylesheets/images/left-arrow.png' onclick="signals_page()">
+			<input type="image" class="image-left-style image_bottom5" src='stylesheets/images/bottom-arrow-d.png' onclick="next6()" disabled>
+			
+			
+	    </div>
+	    <div class='right_navigation'>
+			<input type="image" class="image_top5" src='stylesheets/images/top-arrow-d.png' onclick="prev6()" disabled>
+			<img class="image-left-style" class='top_mar' src='stylesheets/images/right-arrow.png' onclick="comments_page()">
+			<input type="image" class="image-left-style image_bottom5" src='stylesheets/images/bottom-arrow-d.png' onclick="next6()" disabled>
+	    </div>
+	  <div class="slide5">
+	  	
+    <form action="#" method="get">
+      <div data-role="fieldcontain">
+      	<fieldset data-role="controlgroup" data-type="horizontal">
+        <legend for="PredominantLanduse" class="select-ui-cstm">Predominant Landuse :</legend>
+        <select name="PredominantLanduse" id="PredominantLanduse">
+          <option value="standard">From - Active</option>
+          <option value="rush">From - InActive</option>
+        </select>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Number of Intersecting Roadways within 500':</legend>
+        <input type="radio" name="NumberofIntersectingRoadways" id="NumberofIntersectingRoadways0" value="0" checked="checked" />
+        <label for="NumberofIntersectingRoadways0">0</label>
+        <input type="radio" name="NumberofIntersectingRoadways" id="NumberofIntersectingRoadways1" value="1"  />
+        <label for="NumberofIntersectingRoadways1">1</label>
+        <input type="radio" name="NumberofIntersectingRoadways" id="NumberofIntersectingRoadways2" value="2"  />
+        <label for="NumberofIntersectingRoadways2">2</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="DistancetoIntersectionOne">Distance to Intersection One Side of Crossing :</label>
+        <input type="text" name="DistancetoIntersectionOne" id="DistancetoIntersectionOne" value=""  />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="DistancetoIntersectionOther">Distance to Intersection Other Side of Crossing :</label>
+        <input type="text" name="DistancetoIntersectionOther" id="DistancetoIntersectionOther" value=""  />
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Traffic Signals within 500':</legend>
+        <input type="radio" name="TrafficSignals" id="TrafficSignalsy" value="true" checked="checked" />
+        <label for="TrafficSignalsy">Yes</label>
+        <input type="radio" name="TrafficSignals" id="TrafficSignalsn" value="false"  />
+        <label for="TrafficSignalsn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Driveway within 100':</legend>
+        <input type="radio" name="Driveway" id="Drivewayy" value="true" checked="checked" />
+        <label for="Drivewayy">Yes</label>
+        <input type="radio" name="Driveway" id="Drivewayn" value="false"  />
+        <label for="Drivewayn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Is Crossing Illuminated:</legend>
+        <input type="radio" name="IsCrossingIlluminated" id="IsCrossingIlluminatedy" value="true" checked="checked" />
+        <label for="IsCrossingIlluminatedy">Yes</label>
+        <input type="radio" name="IsCrossingIlluminated" id="IsCrossingIlluminatedn" value="false"  />
+        <label for="IsCrossingIlluminatedn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Is Commercial Power within 500':</legend>
+        <input type="radio" name="IsCommercialPower" id="IsCommercialPowery" value="true" checked="checked" />
+        <label for="IsCommercialPowery">Yes</label>
+        <input type="radio" name="IsCommercialPower" id="IsCommercialPowern" value="false"  />
+        <label for="IsCommercialPowern">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Is Alternate Power within 500':</legend>
+        <input type="radio" name="IsAlternatePower" id="IsAlternatePowery" value="true" checked="checked" />
+        <label for="IsAlternatePowery">Yes</label>
+        <input type="radio" name="IsAlternatePower" id="IsAlternatePowern" value="false"  />
+        <label for="IsAlternatePowern">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain" class="select-ui-last-cstm">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend class="select-ui-last-cstm">Do Vehicles queue across the track:</legend>
+        <input type="radio" name="DoVehiclesqueue" id="DoVehiclesqueuey" value="Y" checked="checked" />
+        <label for="DoVehiclesqueuey">Yes</label>
+        <input type="radio" name="DoVehiclesqueue" id="DoVehiclesqueuen" value="N"  />
+        <label for="DoVehiclesqueuen">No</label>
+        </fieldset>
+      </div>
+    </form>
+    </div>
+  </div>
+  
+  <div data-role="footer" data-theme="d" data-position="fixed">
+    <h4 id="VicinityFooter">Vicinity-Page 1 of 1</h4>
+  </div>
+  <script src="jquery.mobile/vicinity.js"></script>
+</div>
+<div data-role="page" id="comments">
+  <div data-role="header" data-position="fixed" data-theme="d">
+  	<a href="process.html" id="home7" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id="Crossing6"> </div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab">General</a></li>
+            <li><a href="#railroad" data-role="tab">Railroad</a></li>
+            <li><a href="#road" data-role="tab">Road</a></li>
+            <li><a href="#signs" data-role="tab">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab" class="ui-btn-active">Comments</a></li>
+            <li><a href="#photos" data-role="tab">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+  	
+  	<div class='left_navigation'>
+  		<input type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev7()" disabled>
+  		<img class="image-left-style" src='stylesheets/images/left-arrow.png' onclick="vicinity_page()">
+			<input type="image" class="image-left-style" src='stylesheets/images/bottom-arrow-d.png' onclick="next7()" disabled>
+			
+			
+	    </div>
+	    <div class='right_navigation'>
+			<input type="image" src='stylesheets/images/top-arrow-d.png' onclick="prev7()" disabled>
+			<img class="image-left-style" src='stylesheets/images/right-arrow.png' onclick="Photes_page()">
+			<input type="image" class="image-left-style" src='stylesheets/images/bottom-arrow-d.png' onclick="next7()" disabled>
+	    </div>
+	  <div class="slide6">
+    <form action="#" method="get">
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Commercial Trucks Present:</legend>
+        <input type="radio" name="CommercialTrucksPresent" id="CommercialTrucksPresenty" value="true" checked="checked" />
+        <label for="CommercialTrucksPresenty">Yes</label>
+        <input type="radio" name="CommercialTrucksPresent" id="CommercialTrucksPresentn" value="false"  />
+        <label for="CommercialTrucksPresentn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>HAZMAT Trucks Present:</legend>
+        <input type="radio" name="HAZMATTrucksPresent" id="HAZMATTrucksPresenty" value="true" checked="checked" />
+        <label for="HAZMATTrucksPresenty">Yes</label>
+        <input type="radio" name="HAZMATTrucksPresent" id="HAZMATTrucksPresentn" value="false"  />
+        <label for="HAZMATTrucksPresentn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>School Buses Present:</legend>
+        <input type="radio" name="SchoolBusesPresent" id="SchoolBusesPresenty" value="true" checked="checked" />
+        <label for="SchoolBusesPresenty">Yes</label>
+        <input type="radio" name="SchoolBusesPresent" id="SchoolBusesPresentn" value="false"  />
+        <label for="SchoolBusesPresentn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+        <legend>Emergency Vehicles Present:</legend>
+        <input type="radio" name="EmergencyVehiclesPresent" id="EmergencyVehiclesPresenty" value="true" checked="checked" />
+        <label for="EmergencyVehiclesPresenty">Yes</label>
+        <input type="radio" name="EmergencyVehiclesPresent" id="EmergencyVehiclesPresentn" value="false"  />
+        <label for="EmergencyVehiclesPresentn">No</label>
+        </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="CommentsforFDOT">Comments for FDOT</label>
+      
+      <textarea cols="40" rows="8" name="CommentsforFDOT" id="CommentsforFDOT"></textarea>
+      </div>
+    </form>
+    </div>
+  </div>
+  
+  <div data-role="footer" data-theme="d" data-position="fixed">
+    <h4 id="CommentsFooter">Comments-Page 1 of 1</h4>
+  </div>
+  <script src="jquery.mobile/comments.js"></script>
+</div>
+
+<!--Photes -->
+
+<div data-role="page" id="photos">
+	
+  <div data-role="header" data-position="fixed" data-theme="d">
+	   <a href="process.html" id="home8" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+    <div class="ui-grid-a">
+      <div class="ui-block-a ui-block-a-ctm" id="Crossing8"></div>
+      <div class="ui-block-b ui-block-b-ctm">
+        <div data-role="navbar">
+          <ul class="ui-grid-d">
+            <li><a href="#general" data-role="tab">General</a></li>
+            <li><a href="#railroad" data-role="tab">Railroad</a></li>
+            <li><a href="#road" data-role="tab">Road</a></li>
+            <li><a href="#signs" data-role="tab">Signs</a></li>
+            <li><a href="#signals-and-gates" data-role="tab">Signals &amp; Gates</a></li>
+            <li><a href="#vicinity" data-role="tab">Vicinity</a></li>
+            <li><a href="#comments" data-role="tab">Comments</a></li>
+            <li><a href="#photos" data-role="tab" class="ui-btn-active">Photos</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    <!-- /grid-a -->
+  </div>
+  <div data-role="content">
+  	
+    <div class='left_navigation'>
+    	<input type="image" class="image_top8" src='stylesheets/images/top-arrow-d.png' onclick="prev8()" disabled>
+    	<img class="image-left-style" src='stylesheets/images/left-arrow.png' onclick="comments_page()">
+			<input type="image" class="image-left-style image_bottom8" src='stylesheets/images/bottom-arrow.png' onclick="next8()">
+			
+			
+	    </div>
+	    <div class='right_navigation'>
+			<input type="image" class="image_top8" src='stylesheets/images/top-arrow-d.png' onclick="prev8()" disabled>
+			<img class="image-left-style" src='stylesheets/images/right-arrow-d.png'>
+			<input type="image" class="image-left-style image_bottom8" src='stylesheets/images/bottom-arrow.png' onclick="next8()">
+	    </div>
+	 	<div class="slide8 current1">
+	 		<input value="Photos-Page 1 of 11" type="hidden" />
+	 		<h4 style="margin-left:93px ">Emergency Notification Sign/USDOT Number Photo</h4>
+	 		
+	 			<div class="ENS_div" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 				<img src="" id="ENS_img" width="256" height="256" />
+	 				<img id="ens_delete_image" src="stylesheets/images/delete_image.png" style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 		<div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				If the number is unreadable, check the other approach to see if the number is better displayed.
+      			</p>
+      			
+      		</div>
+      		
+      	</div>
+      	</div>
+	 	</div>
+	 	<div class="slide8" style="display: none">
+	 		<input value="Photos-Page 2 of 11" type="hidden" />
+	 		<h4 style="margin-left:93px ">USDOT NUMBER PHOTO</h4>
+	 		
+	 			<div class="ENS_Number_div" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 			<img src="" id="number_img" width="256" height="256"/>
+	 			<img id="ens_number_delete_image" src="stylesheets/images/delete_image.png"  style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 		<div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				If there is no ENS sign or the crossing number is not shown on the sign, capture a photo of the crossing number displayed on the railroad equipment
+      			</p>
+      			
+      		</div>
+      		
+      	</div>
+      	</div>
+	 	</div>
+	 	
+	 		<div class="slide8" style="display: none">
+	 			<input value="Photos-Page 3 of 11" type="hidden" />
+	 		<h4 style="margin-left:93px ">Roadway Direction 1</h4>
+	 		 
+	 		<button class='Direction_1' >Take Image</button>
+	 			<div id="Roadway_1" class="Roadway_1" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 			<img src="" id="Direction_number_img" width="256" height="256"/>
+	 			<img id="Direction_delete_image" src="stylesheets/images/delete_image.png"  style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 		<div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				If safe, Photos should be taken from the travel lanes. On busy roadways, Photos can be taken from the edge of pavement and from the median. One person should watch for traffic while the other person takes the photos. Photos should encompass the entire gate and/or cantilever that is nearest the approach lanes.
+      			</p>
+      			<p>
+      				Take a photo of the crossing from one side of the approaching roadway.
+      			</p>
+      			<p>
+      				All warning devices immediately adjacent to the crossing (i.e. signals, lights, gates, signs) should appear in the photo.
+      			</p>
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="width: 100px;background: black;color: white;padding: 20px;margin-left: 30px;margin-top: 60px;">LANDSCAPE</div>
+      		</div>
+      	</div>
+      	</div>
+	 	</div>
+	 	
+	 	<div class="slide8" style="display: none">
+	 		<input value="Photos-Page 4 of 11" type="hidden" />
+	 		<h4 style="margin-left:93px ">Roadway Direction 2</h4>
+	 		
+	 		<button class='Direction_2'>Take Image</button>
+	 			<div class="Roadway_2" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 			<img src="" id="Direction2_number_img" width="256" height="256"/>
+	 			<img id="Direction2_delete_image" src="stylesheets/images/delete_image.png"  style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 		<div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				If safe, Photos should be taken from the travel lanes. On busy roadways, Photos can be taken from the edge of pavement and from the median. One person should watch for traffic while the other person takes the photos. Photos should encompass the entire gate and/or cantilever that is nearest the approach lanes.
+      			</p>
+      			<p>
+      				Take a photo of the crossing from one side of the approaching roadway.
+      			</p>
+      			<p>
+      				All warning devices immediately adjacent to the crossing (i.e. signals, lights, gates, signs) should appear in the photo.
+      			</p>
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="width: 100px;background: black;color: white;padding: 20px;margin-left: 30px;margin-top: 60px;">LANDSCAPE</div>
+      		</div>
+      	</div>
+      	</div>
+	 	</div>
+
+	 	
+	 	<div class="slide8" style="display: none">
+	 		<input value="Photos-Page 5 of 11" type="hidden" />
+	 		<h4 style="margin-left:93px ">Roadway Direction 1 Supplemental</h4>
+	 	<div style="display:block;width: 800px;margin-left: 100px;margin-bottom:20px;overflow: hidden;">
+
+	 	<div id="picture_hold" style="margin-top: 20px;">
+        	
+        </div>
+	    <div class='camera' id='click_camera' style="border: 1px solid black;margin-top: 20px;">
+	    	<img src="camera.png"/>
+	    </div>
+	    </div>
+	  	<br clear="all" />
+	    <div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				If a crossing has more than two lanes in one direction or has a median,then two photos should be taken on each side. If a side walk cannot be clearly seen in a photo,then an extra photo should be taken from the sidewalk at the same distance from the crossing as the first photo.
+      			</p>
+      			<p>
+      				If needed,take an additional photo of the crossing from Direction 2 to capture warning devices that do not appear in the  first photo(i.e. When is to wide). Supplemental photos are required for roads with more than two lanes is one direction or if road has a median.
+      			</p>
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="width: 100px;background: black;color: white;padding: 20px;margin-left: 30px;margin-top: 60px;">LANDSCAPE</div>
+      		</div>
+      	</div>
+      	</div>
+        </div>
+        
+       	 	<div class="slide8" style="display: none">
+       	 		<input value="Photos-Page 6 of 11" type="hidden" />
+	 		<h4 style="margin-left:93px ">Roadway Direction 2 Supplemental</h4>
+	 	<div style="display:block;width: 800px;margin-left: 100px;margin-bottom:20px;overflow: hidden;">
+
+	 	<div id="picture_hold1" style="margin-top: 20px;">
+        	
+        </div>
+	    <div class='camera' id='click_camera1' style="border: 1px solid black;margin-top: 20px;">
+	    	<img src="camera.png"/>
+	    </div>
+	    </div>
+	  	<br clear="all" />
+	    <div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				If a crossing has more than two lanes in one direction or has a median,then two photos should be taken on each side. If a side walk cannot be clearly seen in a photo,then an extra photo should be taken from the sidewalk at the same distance from the crossing as the first photo.
+      			</p>
+      			<p>
+      				If needed,take an additional photo of the crossing from Direction 2 to capture warning devices that do not appear in the  first photo(i.e. When is to wide). Supplemental photos are required for roads with more than two lanes is one direction or if road has a median.
+      			</p>
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="width: 100px;background: black;color: white;padding: 20px;margin-left: 30px;margin-top: 60px;">LANDSCAPE</div>
+      		</div>
+      	</div>
+      	</div>
+        </div>
+
+		<div class="slide8" style="display: none">
+	 		<input value="Photos-Page 7 of 11" type="hidden" />
+	 		<div style="display: block;width: 800px;margin: auto;overflow: hidden;">
+	 			<div style="display: block;width: 400px;float: left">
+	 				<h4>Crossing Surface Direction 1</h4>
+	 				<button class='Crossing_Direction_1'>Take Image</button>
+	 				<div class="Crossing_Roadway_1" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 			<img src="" id="Crossing_Roadway_1_img" width="256" height="256"/>
+	 			<img id="Crossing_Roadway_1_delete_image" src="stylesheets/images/delete_image.png"  style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 			</div>
+	 			
+	 			<div style="display: block;width: 400px;float: left">
+	 				<h4>Crossing Surface Direction 2</h4>
+	 				<button class='Crossing_Direction_2'>Take Image</button>
+	 				<div class="Crossing_Roadway_2" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 			<img src="" id="Crossing_Roadway_2_img" width="256" height="256"/>
+	 			<img id="Crossing_Roadway_2_delete_image" src="stylesheets/images/delete_image.png"  style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 			</div>
+	 		</div>
+	 		
+	 		<div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    		<div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				Take a photo of the crossing surface looking across the roadway.
+      			</p>
+      			
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="height: 40px;background: black;color: white;padding: 60px 10px 40px 20px;margin-left: 30px;margin-top: 60px;">POTRATE</div>
+      		</div>
+      	</div>
+      	</div>
+      	</div>
+		
+		<div class="slide8" style="display: none">
+	 		<input value="Photos-Page 8 of 11" type="hidden" />
+	 		<div style="display: block;width: 800px;margin: auto;overflow: hidden;">
+	 			<div style="display: block;width: 400px;float: left">
+	 				<h4>Railroad Direction 1</h4>
+	 				<button class='Railroad_Direction_1'>Take Image</button>
+	 				<div class="Railroad_Direction_1_d" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 			<img src="" id="Railroad_Direction_1_img" width="256" height="256"/>
+	 			<img id="Railroad_Direction_1_delete_image" src="stylesheets/images/delete_image.png"  style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 			</div>
+	 			
+	 			<div style="display: block;width: 400px;float: left">
+	 				<h4>Railroad Direction 2</h4>
+	 				<button class='Railroad_Direction_2'>Take Image</button>
+	 				<div class="Railroad_Direction_2_d" style="display: none;position: relative;height: 256px;width: 256px;margin: auto;margin-bottom:20px;">
+	 			<img src="" id="Railroad_Direction_2_img" width="256" height="256"/>
+	 			<img id="Railroad_Direction_2_delete_image" src="stylesheets/images/delete_image.png"  style="position:absolute;right: 0%;top:0%;"/>
+	 			</div>
+	 			</div>
+	 		</div>
+	 		
+	 		<div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				Take a photo of the tracks looking across the roadway.
+      			</p>
+      			<p>
+      				If there are multiple tracks, Include all tracks, Additional 2 photos required.
+      			</p>
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="height: 40px;background: black;color: white;padding: 60px 10px 40px 20px;margin-left: 30px;margin-top: 60px;">POTRATE</div>
+      		</div>
+      	</div>
+      </div>
+        </div>
+        
+        <div class="slide8" style="display: none">
+        	<input value="Photos-Page 9 of 11" type="hidden" />
+	 	<h4 style="margin-left:93px ">Railroad Supplemental Photos</h4>
+	 	<div style="display:block;width: 800px;margin-left: 100px;margin-bottom:20px;overflow: hidden;">
+
+	 	<div id="picture_hold2" style="margin-top: 20px;">
+        	
+        </div>
+	    <div class='camera' id='click_camera2' style="border: 1px solid black;margin-top: 20px;">
+	    	<img src="camera.png"/>
+	    </div>
+	    </div>
+	  	<br clear="all" />
+	    <div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				Take a photo of the tracks looking across the roadway.
+      			</p>
+      			<p>
+      				If there are multiple tracks, Include all tracks, Additional 2 photos required.
+      			</p>
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="height: 40px;background: black;color: white;padding: 60px 10px 40px 20px;margin-left: 30px;margin-top: 60px;">POTRATE</div>
+      		</div>
+      	</div>
+      	</div>
+        </div>
+    
+         <div class="slide8" style="display: none">
+         	<input value="Photos-Page 10 of 11" type="hidden" />
+	 	<h4 style="margin-left:93px ">Cabinet Photos</h4>
+	 	<div style="display:block;width: 800px;margin-left: 100px;margin-bottom:20px;overflow: hidden;">
+
+	 	<div id="picture_hold3" style="margin-top: 20px;">
+        	
+        </div>
+	    <div class='camera' id='click_camera3' style="border: 1px solid black;margin-top: 20px;">
+	    	<img src="camera.png"/>
+	    </div>
+	    </div>
+	  	<br clear="all" />
+	    <div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				Photos should show the side of the cabinet with writing.
+      			</p>
+      			<p>
+      				Photos should show the alternative power available (generator case).
+      			</p>
+      			<p>
+      				Multiple photos may be  required.
+      			</p>
+      			<p>
+      				Take a photo of the signal cabinet.
+      			</p>
+      			<p>
+      				Include street name and/or crossing number if displayed on cabinet.
+      			</p>
+      			<p>
+      				Photographer should walk around the entire cabinet.
+      			</p>
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="width: 100px;background: black;color: white;padding: 20px;margin-left: 30px;margin-top: 60px;">LANDSCAPE</div>
+      		</div>
+      	</div>
+      	</div>
+        </div>
+        
+         <div class="slide8 current1" style="display: none">
+         	<input value="Photos-Page 11 of 11" type="hidden" />
+	 	<h4 style="margin-left:93px ">Additional Photos</h4>
+	 	<div style="display:block;width: 800px;margin-left: 100px;margin-bottom:20px;overflow: hidden;">
+
+	 	<div id="picture_hold4" style="margin-top: 20px;">
+        	
+        </div>
+	    <div class='camera' id='click_camera4' style="border: 1px solid black;margin-top: 20px;">
+	    	<img src="camera.png"/>
+	    </div>
+	    </div>
+	  	<br clear="all" />
+	    <div style="display: block;border-top: 2px solid black;width: 800px;margin: auto">
+	    <div style="display: block;width: 800px;float:left">
+      		<div style="display: block;width: 600px;float:left">
+      			<p>
+      				Additional photos if needed.
+      			</p>
+      			<p>
+      				Street Name if posted street name does not match database.
+      			</p>
+      			
+      		</div>
+      		<div style="display: block;width: 150px;float:left">
+      			<div style="width: 100px;background: black;color: white;padding: 20px;margin-left: 30px;margin-top: 60px;">LANDSCAPE</div>
+      		</div>
+      	</div>
+      	</div>
+        </div>
+      
+      </div>
+      
+  <div data-role="footer" data-position="fixed" data-theme="d">
+    <h4 id="PhotosFooter">Photos-Page 1 of 11</h4>
+  </div>
+  <script src="jquery.mobile/photos.js"></script>
+</div>
+<!-- <script src="jquery.mobile/comments.js"></script> -->
+<!-- <script src="jquery.mobile/photos.js"></script> -->
+<!-- <script src="jquery.mobile/road.js"></script> -->
+<!-- <script src="jquery.mobile/signs.js"></script>
+<script src="jquery.mobile/signals.js"></script> -->
+
+<script type="text/javascript">
+
+
+$("a[data-role=tab]").each(function () {
+    var anchor = $(this);
+    anchor.bind("touchstart", function (e) {
+    	
+    	//$(this).addClass("ui-state-persist");
+    	//e.stopImmediatePropagation();
+   
+    // if (("#"+$.mobile.activePage.data('url')) != anchor.attr("href")) {
+    	// $(".ui-loader").css({"display": "block", "top": "252px !important" });
+	// $(".ui-loader-verbose").css({"background":"yellow"})
+   //}
+	
+        $.mobile.changePage(anchor.attr("href"), {
+      		showLoadMsg: true,
+            /*transition: "slidefade",*/
+			transition: "none",
+            changeHash: false
+        });				
+        return false;
+    });
+    
+});
+
+ 
+$("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
+	
+    $.mobile.silentScroll(0);
+    //$(".ui-loader").css({"display": "block", "top": "252px !important" });
+  
+   
+});
+
+$('div[data-role="page"]').live('pagehide', function (event, ui) {
+	
+	$(".ui-loader").css({ "display": "none" });
+	
+   //$html.removeClass( "ui-loading" );
+});
+
+	 $("input[type=radio]").click(function() {
+    	
+    	//alert(this.value)
+		Update_data(this.value,$(this).closest("div.current").attr('datafield'))
+	});
+ $("select").change(function() {
+    	
+    	//alert(this.value)
+		Update_data(this.value,$(this).closest("div.current").attr('datafield'))
+	});
+	$("input[type=text]").focusout(function() {
+    	
+    	//alert(this.value)
+		Update_data(this.value,$(this).closest("div.current").attr('datafield'))
+	});
+
+</script>
+</body>
+
+</html>

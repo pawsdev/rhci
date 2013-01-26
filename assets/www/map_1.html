@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"
+        />
+        <title>map</title>
+        <link rel="stylesheet" href="index.css"/>
+        <link rel="stylesheet" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.5/js/dojo/dijit/themes/tundra/tundra.css">
+        <link rel="stylesheet" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.5/js/esri/dijit/css/Popup.css">
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            #map {
+                margin: 0;
+                padding: 0;
+            }
+            .color_box{
+  width:16px;
+  height:16px;
+  margin-left:10px;
+  border:1px solid grey;
+  float: left
+}
+        </style>
+        <script>
+            var dojoConfig = {
+                parseOnLoad: true
+            };
+        </script>
+        <script src="jquery.mobile/jquery-1.7.2.min"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+        <script src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.5"></script>
+        <script>
+            dojo.require("dijit.layout.BorderContainer");
+            dojo.require("dijit.layout.ContentPane");
+            dojo.require("esri.dijit.InfoWindow");
+            dojo.require("esri.map");
+
+            var map;
+             var db;
+    		var len;
+    		var data;
+    		var arlene = new Array();
+    		var arlene1 = new Array();
+    		var status = new Array()
+			var ar=new Array();
+			var ar1=new Array();
+			 function quDB(tx) {
+        tx.executeSql("SELECT * FROM Master_Crossing", [], QuSuccess, errCB);
+        //alert("jsfd")
+     
+       }
+    function errCB(err) {
+        alert("Error processing SQL: "+err.code);
+    }
+    function QuSuccess(tx, results) {
+    	len = results.rows.length;
+    	data =results;
+    	 for (var i=0; i<len; i++){
+            arlene[i]=results.rows.item(i).cross_Latitude;
+            
+            arlene1[i]=results.rows.item(i).cross_Longitude;
+            status[i] = results.rows.item(i).cross_status;
+            console.log(results.rows.item(i).cross_status)
+            ar[i]=[arlene[i],arlene1[i]]
+            //ar=[[results.rows.item(i).cross_Latitude],[results.rows.item(i).cross_Longitude]]
+           }
+          
+    }
+            function init() {
+            	var initExtent = new esri.geometry.Extent({"xmin":-17731.00190514121,"ymin":6710077.07846947,"xmax":-12495.065467468508,"ymax":6712279.420346995,"spatialReference":{"wkid":102100}});
+               
+                map = new esri.Map("map", {extent:initExtent, slider: true, sliderStyle: "small"});
+                
+                var basemap = new esri.layers.ArcGISDynamicMapServiceLayer("http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer");
+                map.addLayer(basemap);
+               
+                dojo.connect(map, "onLoad", initfunctionality);
+            }
+           // ArcGISTiledMapServiceLayer
+                    function initfunctionality() {
+                   
+                    dojo.connect(dijit.byId('map'), 'resize', map, map.resize);
+
+                   for(i=0;i<ar.length;i++){
+						var points = {
+                        "points": [
+                        	//ar1[i]
+                            ar[i]
+                        ],
+                        "spatialReference": ({
+                            "wkid": 4326
+                        })
+                    };
+						var mp = new esri.geometry.Multipoint(points);
+                        var wm_mp = esri.geometry.geographicToWebMercator(mp);
+                        //alert(status[i])
+						switch(data.rows.item(i).cross_status)
+						{
+							case "REVISIT REQUIRED":
+								var infoTemplate = new esri.InfoTemplate(data.rows.item(i).cross_status, data.rows.item(i).cross_number);
+                            var sms = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE).setColor(new dojo.Color([255,0,0,0.5]));
+							break;
+							case "Inspection Complete":
+								var infoTemplate = new esri.InfoTemplate(data.rows.item(i).cross_status, data.rows.item(i).cross_number);
+                            var sms = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE).setColor(new dojo.Color([154,205,50]));
+							break;
+							case "Inspection In-Progress":
+								var infoTemplate = new esri.InfoTemplate(data.rows.item(i).cross_status, data.rows.item(i).cross_number);
+                            var sms = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE).setColor(new dojo.Color([255,255,0]));
+							break;
+							case "Awaiting Inspection":
+								var infoTemplate = new esri.InfoTemplate(data.rows.item(i).cross_status, data.rows.item(i).cross_number);
+                            var sms = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE).setColor(new dojo.Color([128,128,128]));
+							break;
+							
+							
+						}
+					
+                    
+					var graphic = new esri.Graphic(wm_mp, sms, "",infoTemplate );//, 'onMouseOver', infoTemplate);
+                    map.graphics.add(graphic);
+				}
+					dojo.connect(map.graphics,"onMouseClick",function(evt){
+					//map.graphics.clear();  //use the maps graphics layer as the highlight layer
+					var content = evt.graphic.getContent();
+					map.infoWindow.setContent(content);
+					var title = evt.graphic.getTitle();
+					map.infoWindow.setTitle(title);
+					map.infoWindow.show(evt.screenPoint,map.getInfoWindowAnchor(evt.screenPoint));
+					});
+				
+					
+				dojo.connect(map.graphics, "onMouseClick", function(evt) {
+					map.infoWindow.hide();
+				});
+               
+            }
+            
+
+	dojo.ready(init);
+    
+
+            
+            db = window.openDatabase("SQL", 3, "PhoneGap Demo", 200000);
+    
+  			db.transaction(quDB, errCB);
+        </script>
+    </head>
+    
+    <body class="tundra" >
+    	
+  
+<div data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design:'headline',gutters:false" style="width: 100%; height: 100%; margin: 0;">
+            <div id="map" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'center'">
+            	<a href="process.html" id="home" style="position:absolute; left:150px; top:5px; color:#fff; z-index:50;" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">back</a>
+			 <div id="info" style="position: absolute;width:100%;height:20px; bottom:5px; color:#000; z-index:50;border: 1px solid grey">
+			 	 <div class="color_box" style="background:#F50C0C;margin-left: 5px"></div>
+               <span style="float: left;margin-left: 5px">Revisit Required</span>
+              <div class="color_box" style="background:#8A8383;margin-left: 5px"></div>
+               <span style="float: left;margin-left: 5px">No Started</span>
+               
+       <div class="color_box" style="background:#F7D80D;margin-left: 5px"></div>
+               <span style="float: left;margin-left: 5px">In Progress</span>
+               
+              <div class="color_box" style="background:#48B542;"></div>
+               <span style="float: left;margin-left: 5px">Complete</span>
+			 </div>
+			</div>
+        </div>
+        
+        
+    </body>
+
+</html>​

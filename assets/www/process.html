@@ -1,0 +1,62 @@
+<!-- Copyright (c) 2012 Mobile Developer Solutions -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+    <title>RHCI</title>
+	
+
+	<link rel="stylesheet" href="stylesheets/custom.css" />
+ 	<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.2.0.css" />
+	<link rel="stylesheet" href="index.css" /> 
+	
+    <link rel="stylesheet" href="stylesheets/my.css" />
+    <script src="jquery.mobile/jquery-1.7.2.min"></script>
+    
+	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+	 
+	<script  src="jquery.mobile/index.js"></script>
+    <script>
+  
+    $("#login_data").html("<span style='float:right;margin-right:40px'>Logged in as "+localStorage.user+"</span>")
+    
+   
+    </script>
+  </head>
+  <body >
+  	
+  
+  	<div data-role="page" id="homePage" data-transition="slide">
+  		
+    <div data-role="content" id="mainContent">	
+     <div class="ui-grid-a">
+      		<div class="ui-block-a">
+      			<h3 id="rhci" class="ui-li-heading">RHCI Field Data Collection</h3>
+				<p class="ui-li-desc">Crossings</p>
+      			
+      		</div>
+      		<div class="ui-block-b">
+      			 <div class="ui-grid-a">
+      			 	<span id="login_data"></span>
+      			 </div>
+      		
+    			<a id='synchronize' href='#' data-inline="true" type='button' style="float:right;">Synchronize</a>
+      			<a id ="link" rel='external'  href="map_1.html" data-inline="true" data-role="button" style="float:right;">Map View</a>
+      		</div>
+    	</div>
+    	<br clear="all">
+		<ul data-role="listview" id="noteTitleList"></ul>
+	</div>
+	<div data-role="bottom" id="Content">	
+		
+	</div>
+   
+    
+    </div>
+    
+
+    
+    
+  </body>
+</html>

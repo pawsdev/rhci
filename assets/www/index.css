@@ -1,0 +1,41 @@
+.ui-li-desc{
+margin-top:10px;
+}
+li.color_coding{
+/*background-color:blue;*/
+text-shadow:none;
+border:1px solid gray;
+font-weight:bold;
+}
+.a_bold{
+font-weight:bold;
+}
+.map_button{
+	width:150px;
+float:left;
+}
+.synchronize_button{
+width:200px;
+float:left;
+}
+#hide_two{
+width:400px;
+
+float:right;
+}
+#hide_one{
+width:400px;
+float:left;
+
+}
+#home{
+	padding:10px;
+	border-radius:5px 5px;
+	text-decoration:none;
+	background: #476E7F;
+	
+}
+#info{
+	background-color:#FFFFFF;
+	padding: 5px 0px;
+}
